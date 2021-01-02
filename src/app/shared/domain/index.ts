@@ -55,3 +55,8 @@ export interface ProductDetail {
     subtitle: string,
     updateTime: string
 }
+
+export interface User {
+    username: string,
+    password: string
+}

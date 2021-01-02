@@ -9,6 +9,7 @@ import { HomeModule } from './home';
 import { ListModule } from './list';
 import { DetailModule } from './detail';
 import { CartModule } from './cart';
+import { UserLoginModule } from './userlogin'
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -19,7 +20,8 @@ import { CartModule } from './cart';
     HomeModule,
     ListModule,
     DetailModule,
-    CartModule
+    CartModule,
+    UserLoginModule
   ],
   providers: [],
   bootstrap: [AppComponent],
