@@ -1,1 +1,39 @@
-List page working
+<div class="crumb">
+  <div class="w">
+    <div class="crumb-con">
+      <a class="link" href="./home">MTMall</a>
+      <span>></span>
+      <span class="link-text">商品列表页</span>
+    </div>
+  </div>
+</div>
+<div class="page-wrap w">
+  <ul class="sort-con">
+    <li class="sort-item active" data-type="default">默认排序</li>
+    <li class="sort-item" data-type="price">
+      <span>价格</span>
+      <i class="fa fa-sort-asc"></i>
+      <i class="fa fa-sort-desc"></i>
+    </li>
+  </ul>
+  <!-- list 容器 -->
+  <ul class="p-list-con" *ngFor="let product of products$ | async">
+      
+    <li class="p-item">
+        <div class="p-img-con">
+            <a class="link" href="./detail.html?productId={{product.id}}" target="_blank">
+                <img class="p-img" src="{{product.imageHost}}{{product.mainImage}}" alt="{{product.name}}" />
+            </a>
+        </div>
+        <div class="p-price-con">
+            <span class="p-price">￥{{product.price}}</span>
+        </div>
+        <div class="p-name-con">
+            <a class="p-name" href="./detail?productId={{product.id}}">{{product.name}}</a>
+        </div>
+    </li>
+
+  </ul>
+  <!-- 分页容器 -->
+  <div class="pagination"></div>
+</div>
