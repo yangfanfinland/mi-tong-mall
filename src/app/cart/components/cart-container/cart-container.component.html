@@ -1,0 +1,83 @@
+<div class="crumb">
+  <div class="w">
+    <div class="crumb-con">
+      <a class="link" href="./home">MTMall</a>
+      <span>></span>
+      <span class="link-text">购物车</span>
+    </div>
+  </div>
+</div>
+<div class="page-wrap w" *ngIf="cart$ | async as cart">
+    <div class="cart-header">
+        <table class="cart-table">
+            <tr>
+                <th class="cart-cell cell-check">
+                    <label class="cart-label">
+                        <input type="checkbox" class="cart-select-all" checked/>
+                        <!-- <input type="checkbox" class="cart-select-all" /> -->
+                        <span>全选</span>
+                    </label>
+                </th>
+                <th class="cart-cell cell-info">商品信息</th>
+                <th class="cart-cell cell-price">单价</th>
+                <th class="cart-cell cell-count">数量</th>
+                <th class="cart-cell cell-total">合计</th>
+                <th class="cart-cell cell-opera">操作</th>
+            </tr>
+        </table>
+    </div>
+    <div class="cart-list">
+        <table class="cart-table" *ngFor="let productVo of cart.cartProductVoList">
+            <tr>
+                <td class="cart-cell cell-check">
+                    <label class="cart-label">
+                        <input type="checkbox" class="cart-select" checked/>
+                        <!-- <input type="checkbox" class="cart-select" /> -->
+                    </label>
+                </td>
+                <td class="cart-cell cell-img">
+                    <a class="link" href="./detail.html?productId={{productVo.productId}}">
+                        <img class="p-img" src="{{productVo.imageHost}}{{productVo.productMainImage}}" alt="{{productVo.productName}}" />
+                    </a>
+                </td>
+                <td class="cart-cell cell-info">
+                    <a class="link" href="./detail.html?productId={{productVo.productId}}">{{productVo.productName}}</a>
+                </td>
+                <td class="cart-cell cell-price">￥{{productVo.productPrice}}</td>
+                <td class="cart-cell cell-count">
+                    <span class="count-btn minus">-</span>
+                    <input class="count-input" value="{{productVo.quantity}}" data-max="{{productVo.productStock}}"/>  
+                    <span class="count-btn plus">+</span>
+                </td>
+                <td class="cart-cell cell-total">￥{{productVo.productTotalPrice}}</td>
+                <td class="cart-cell cell-opera">
+                    <span class="link cart-delete">删除</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="cart-footer">
+        <div class="select-con">
+            <label>
+                <!-- <input type="checkbox" class="cart-select-all" checked/> -->
+                <input type="checkbox" class="cart-select-all" />
+                <span>全选</span>
+            </label>
+        </div>
+        <div class="delete-con">
+            <span class="link delete-selected">
+                <i class="fa fa-trash-o"></i>
+                <span>删除选中</span>
+            </span>
+        </div>
+        <div class="submit-con">
+            <span>总价：</span>
+            <span class="submit-total">￥{{cart.cartTotalPrice}}</span>
+            <span class="btn btn-submit">去结算</span>
+        </div>
+    </div>
+</div>
+<p class="err-tip" *ngIf="!cart$">
+    <span>您的购物车空空如也，</span>
+    <a href="./index.html">立即去购物</a>
+</p>

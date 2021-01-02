@@ -8,7 +8,7 @@ import { SharedModule } from './shared';
 import { HomeModule } from './home';
 import { ListModule } from './list';
 import { DetailModule } from './detail';
-
+import { CartModule } from './cart';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,7 +18,8 @@ import { DetailModule } from './detail';
     HttpClientModule,
     HomeModule,
     ListModule,
-    DetailModule
+    DetailModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent],
