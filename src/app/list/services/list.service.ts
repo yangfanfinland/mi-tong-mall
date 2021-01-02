@@ -13,6 +13,11 @@ export class ListService {
       params: { keyword: keyword, pageNum: pageNum, pageSize: pageSize, orderBy: orderBy },
     });
   }
+  getProductsByCategoryId(categoryId: string, pageNum: string = "1", pageSize: string = "10", orderBy: string = "default") {
+    return this.http.get<ListResource>(`/api/product/list.do`, {
+      params: { categoryId: categoryId, pageNum: pageNum, pageSize: pageSize, orderBy: orderBy },
+    });
+  }
   getProductById(id: string) {
     return this.http.get<ProductDetailResource>(`/api/product/detail.do`, {
       params: { productId: id },
