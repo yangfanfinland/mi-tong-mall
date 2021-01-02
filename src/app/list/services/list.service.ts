@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Product, ListResource } from 'src/app/shared';
+import { Product, ListResource, ProductDetail, ProductDetailResource } from 'src/app/shared';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,5 +12,10 @@ export class ListService {
     return this.http.get<ListResource>(`/api/product/list.do`, {
       params: { keyword: keyword, pageNum: pageNum, pageSize: pageSize, orderBy: orderBy },
     });
+  }
+  getProductById(id: string) {
+    return this.http.get<ProductDetailResource>(`/api/product/detail.do`, {
+      params: { productId: id },
+    })
   }
 }

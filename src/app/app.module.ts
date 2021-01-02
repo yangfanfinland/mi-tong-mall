@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared';
 import { HomeModule } from './home';
 import { ListModule } from './list';
+import { DetailModule } from './detail';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { ListModule } from './list';
     HttpClientModule,
     HomeModule,
     ListModule,
+    DetailModule
   ],
   providers: [],
   bootstrap: [AppComponent],
