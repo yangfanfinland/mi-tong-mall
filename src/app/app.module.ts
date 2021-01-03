@@ -10,6 +10,8 @@ import { ProductModule } from './product';
 import { DetailModule } from './detail';
 import { CartModule } from './cart';
 import { UserLoginModule } from './userlogin'
+import { ResultModule } from './result'
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,7 +23,8 @@ import { UserLoginModule } from './userlogin'
     ProductModule,
     DetailModule,
     CartModule,
-    UserLoginModule
+    UserLoginModule,
+    ResultModule
   ],
   providers: [],
   bootstrap: [AppComponent],
