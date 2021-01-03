@@ -38,8 +38,7 @@ export class DetailContainerComponent implements OnInit {
 
   addToCart() {
     this.cartService.addToCart(this.productId, this.count).subscribe(res => {
-      console.log(res)
-      // window.location.href = './result?type=cart-add'
+      this.router.navigate(['/result'], { queryParams: { type: "cart-add"}});
     })
   }
 

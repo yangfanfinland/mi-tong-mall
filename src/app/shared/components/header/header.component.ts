@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/userlogin';
 import { map, filter, switchMap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,11 @@ import { map, filter, switchMap } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  user$: Observable<any>
+  user$: Observable<any>;
+  car$: Observable<any>;
 
   ngOnInit() {
-    this.user$ = this.http.post<any>(`http://localhost:8080/mitongmallbackend_war/user/get_user_info.do`, undefined, { withCredentials: true }).pipe(map(resource => resource.data));
+    this.user$ = this.http.post<any>(`${environment.baseUrl}/user/get_user_info.do`, undefined, { withCredentials: true }).pipe(map(resource => resource.data));
+    this.car$ = this.http.get<any>(`${environment.baseUrl}/cart/get_cart_product_count.do`, { withCredentials: true }).pipe(map(resource => resource.data));
   }
 }

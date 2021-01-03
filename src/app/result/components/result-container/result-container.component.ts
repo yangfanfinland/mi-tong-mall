@@ -1,9 +1,8 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
 import { CartService } from 'src/app/cart';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,7 +13,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ResultContainerComponent implements OnInit {
 
-  ngOnInit(): void {
+  type$: Observable<string>;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
+  ngOnInit(): void {
+    this.type$ = this.route.queryParams.pipe(
+      map(params => params.type)
+    );
   }
 }
