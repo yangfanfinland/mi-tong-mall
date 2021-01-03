@@ -7,4 +7,4 @@ import { PaymentContainerComponent } from './components';
     declarations: [PaymentContainerComponent],
     imports: [SharedModule, PaymentRoutingModule]
 })
-export class AboutModule {}
+export class PaymentModule {}

@@ -20,6 +20,7 @@ import { UserCenterModule } from './usercenter'
 import { UserCenterUpdateModule } from './usercenterupdate'
 import { PassUpdateModule } from './passupdate'
 import { PassResetModule } from './passreset'
+import { PaymentModule } from './payment'
 import { AboutModule } from './about'
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AboutModule } from './about'
     UserCenterUpdateModule,
     PassUpdateModule,
     PassResetModule,
+    PaymentModule,
     AboutModule
   ],
   providers: [],
