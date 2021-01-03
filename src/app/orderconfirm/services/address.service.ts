@@ -17,7 +17,7 @@ export class AddressService {
   // Get address list
   getAddressList(pageSize: string = '50') {
     return this.http.get<any>(
-      `${environment.baseUrl}/shipping/shipping/list.do?pageSize=${pageSize}`,
+      `${environment.baseUrl}/shipping/list.do?pageSize=${pageSize}`,
       {
         withCredentials: true,
       }
@@ -27,7 +27,7 @@ export class AddressService {
   save(addressInfo: any) {
     const headers = { 'Content-Type': 'application/json' };
     return this.http.post<any>(
-      `${environment.baseUrl}/shipping/shipping/add.do`,
+      `${environment.baseUrl}/shipping/add.do`,
       addressInfo,
       {
         headers,
@@ -39,7 +39,7 @@ export class AddressService {
   update(addressInfo: any) {
     const headers = { 'Content-Type': 'application/json' };
     return this.http.post<any>(
-      `${environment.baseUrl}/shipping/shipping/update.do`,
+      `${environment.baseUrl}/shipping/update.do`,
       addressInfo,
       {
         headers,
@@ -50,7 +50,7 @@ export class AddressService {
   // Delete receiver
   deleteAddress(shippingId: string) {
     return this.http.get<any>(
-      `${environment.baseUrl}/shipping/shipping/del.do?shippingId=${shippingId}`,
+      `${environment.baseUrl}/shipping/del.do?shippingId=${shippingId}`,
       {
         withCredentials: true,
       }
@@ -59,7 +59,7 @@ export class AddressService {
   // Get receiver info
   getAddress(shippingId: string) {
     return this.http.get<any>(
-      `${environment.baseUrl}/shipping/shipping/select.do?shippingId=${shippingId}`,
+      `${environment.baseUrl}/shipping/select.do?shippingId=${shippingId}`,
       {
         withCredentials: true,
       }
