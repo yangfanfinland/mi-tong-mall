@@ -2,17 +2,17 @@ import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared';
-import { ProductService } from 'src/app/list';
+import { ProductService } from 'src/app/product';
 import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-list-container',
-  templateUrl: './list-container.component.html',
-  styleUrls: ['./list-container.component.css'],
+  selector: 'app-product-container',
+  templateUrl: './product-container.component.html',
+  styleUrls: ['./product-container.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListContainerComponent implements OnInit {
+export class ProductContainerComponent implements OnInit {
   products$: Observable<Product[]>;
 
   constructor(

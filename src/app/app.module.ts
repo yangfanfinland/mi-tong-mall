@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared';
 import { HomeModule } from './home';
-import { ListModule } from './list';
+import { ProductModule } from './product';
 import { DetailModule } from './detail';
 import { CartModule } from './cart';
 import { UserLoginModule } from './userlogin'
@@ -18,7 +18,7 @@ import { UserLoginModule } from './userlogin'
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
-    ListModule,
+    ProductModule,
     DetailModule,
     CartModule,
     UserLoginModule
