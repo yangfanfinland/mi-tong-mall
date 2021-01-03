@@ -20,7 +20,8 @@ export class OrderConfirmContainerComponent implements OnInit {
   order$: Observable<any>;
   addressList$: Observable<any>;
   orderItem$: Observable<any>;
-  data = { selectedAddressId: null };
+  data = { selectedAddressId: "" };
+  selectedAddressId = ""
 
   constructor(
     private router: Router,
@@ -41,19 +42,6 @@ export class OrderConfirmContainerComponent implements OnInit {
   }
 
   addressFilter = (data: any) => {
-    if (this.data.selectedAddressId) {
-      var selectedAddressIdFlag = false;
-      for (var i = 0, length = data.data.list.length; i < length; i++) {
-        if (data.data.list[i].id === this.data.selectedAddressId) {
-          data.data.list[i].isActive = true;
-          selectedAddressIdFlag = true;
-        }
-      }
-      // 如果以前选中的地址不在列表里，将其删除
-      if (!selectedAddressIdFlag) {
-        this.data.selectedAddressId = null;
-      }
-    }
     return data.data.list;
   };
 
@@ -111,9 +99,13 @@ export class OrderConfirmContainerComponent implements OnInit {
   addressDelete(addressId: string) {
     if(window.confirm('确认要删除该地址？')){
       this.addressService.deleteAddress(addressId).subscribe(response => {
+        this.selectedAddressId = "";
         this.loadAddressList();
         this.cdr.detectChanges();
       })
     }
+  }
+  addressItem(addressId: string) {
+    this.selectedAddressId = addressId
   }
 }

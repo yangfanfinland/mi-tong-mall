@@ -12,30 +12,32 @@
     <h1 class="panel-title">收货地址</h1>
     <div class="panel-body address-con">
       <ng-container *ngFor="let address of addressList$ | async">
-        <div class="address-item active" data-id="{{ address.id }}">
-          <div
-            class="address-item"
-            [ngClass]="{ active: address.isActive }"
-            data-id="{{ address.id }}"
-          >
-            <div class="address-title">
-              {{ address.receiverCity }} {{ address.receiverProvince }} （
-              {{ address.receiverName }} 收 ）
-            </div>
-            <div class="address-detail">
-              {{ address.receiverAddress }} {{ address.receiverPhone }}
-            </div>
-            <div class="address-opera">
-              <span class="link address-update" (click)="editAddress(address.id)">编辑</span>
-              <span class="link address-delete" (click)="addressDelete(address.id)">删除</span>
-            </div>
+        <div class="address-item" [class.active]="address.id == selectedAddressId" (click)="addressItem(address.id)">
+          <div class="address-title">
+            {{ address.receiverCity }} {{ address.receiverProvince }} （
+            {{ address.receiverName }} 收 ）
+          </div>
+          <div class="address-detail">
+            {{ address.receiverAddress }} {{ address.receiverPhone }}
+          </div>
+          <div class="address-opera">
+            <span class="link address-update" (click)="editAddress(address.id)"
+              >编辑</span
+            >
+            <span
+              class="link address-delete"
+              (click)="addressDelete(address.id)"
+              >删除</span
+            >
           </div>
         </div>
       </ng-container>
       <div class="address-add">
-        <div class="address-new">
+        <div class="address-new" (click)="openDialog()">
           <i class="fa fa-plus"></i>
-          <div class="text" mat-raised-button (click)="openDialog()">使用新地址</div>
+          <div class="text">
+            使用新地址
+          </div>
         </div>
       </div>
     </div>

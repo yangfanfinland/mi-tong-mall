@@ -83,4 +83,8 @@ export class CartContainerComponent implements OnInit {
       this.cart$ = this.service.deleteProduct(arrProductIds.join(',')).pipe(map(res => res.data));
     }
   }
+
+  checkout() {
+    this.router.navigate(['/confirm']);
+  }
 }
