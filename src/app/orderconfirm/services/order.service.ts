@@ -8,9 +8,39 @@ import { environment } from 'src/environments/environment';
 })
 export class OrderService {
   constructor(private http: HttpClient) {}
-  getProductsByKeyword(keyword: string, pageNum: string = "1", pageSize: string = "10", orderBy: string = "default") {
-    return this.http.get<ListResource>(`${environment.baseUrl}/product/list.do`, {
-      params: { keyword: keyword, pageNum: pageNum, pageSize: pageSize, orderBy: orderBy },
+  // Get product list
+  getProductList() {
+    return this.http.get<any>(`${environment.baseUrl}/order/order/get_order_cart_product.do`, {
+      withCredentials: true
+    });
+  }
+  // Create order
+  createOrder(orderInfo: any) {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post<any>(
+      `${environment.baseUrl}/order/order/create.do`,
+      orderInfo,
+      {
+        headers,
+        withCredentials: true,
+      }
+    );
+  }
+  // Get order list
+  getOrderList(pageNum: string = "1", pageSize: string = "10") {
+    return this.http.get<any>(`${environment.baseUrl}/order/order/list.do?pageNum=${pageNum}&pageSize=${pageSize}`, {
+      withCredentials: true
+    });
+  }
+  // Get order detail
+  getOrderDetail(orderNumber: number) {
+    return this.http.get<any>(`${environment.baseUrl}/order/order/detail.do?orderNumber=${orderNumber}`, {
+      withCredentials: true
+    });
+  }
+  // Cancel order
+  cancelOrder(orderNumber: number) {
+    return this.http.get<any>(`${environment.baseUrl}/order/order/cancel.do?orderNumber=${orderNumber}`, {
       withCredentials: true
     });
   }
