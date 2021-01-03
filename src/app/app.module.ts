@@ -14,10 +14,12 @@ import { ResultModule } from './result'
 import { OrderConfirmModule } from './orderconfirm'
 import { OrderListModule } from './orderlist'
 import { OrderDetailModule } from './orderdetail'
+import { UserRegisterModule } from './userregister'
 import { UserLoginModule } from './userlogin'
 import { UserCenterModule } from './usercenter'
 import { UserCenterUpdateModule } from './usercenterupdate'
 import { PassUpdateModule } from './passupdate'
+import { PassResetModule } from './passreset'
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,10 +37,12 @@ import { PassUpdateModule } from './passupdate'
     OrderConfirmModule,
     OrderListModule,
     OrderDetailModule,
+    UserRegisterModule,
     UserLoginModule,
     UserCenterModule,
     UserCenterUpdateModule,
-    PassUpdateModule
+    PassUpdateModule,
+    PassResetModule
   ],
   providers: [],
   bootstrap: [AppComponent],
