@@ -23,27 +23,22 @@ export class AddressService {
       }
     );
   }
-  // New receiver
   save(addressInfo: any) {
-    const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(
+    return this.http.get<any>(
       `${environment.baseUrl}/shipping/add.do`,
-      addressInfo,
       {
-        headers,
         withCredentials: true,
+        params: addressInfo
       }
     );
   }
   // Update receiver
   update(addressInfo: any) {
-    const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(
+    return this.http.get<any>(
       `${environment.baseUrl}/shipping/update.do`,
-      addressInfo,
       {
-        headers,
         withCredentials: true,
+        params: addressInfo
       }
     );
   }

@@ -26,8 +26,8 @@
               {{ address.receiverAddress }} {{ address.receiverPhone }}
             </div>
             <div class="address-opera">
-              <span class="link address-update">编辑</span>
-              <span class="link address-delete">删除</span>
+              <span class="link address-update" (click)="editAddress(address.id)">编辑</span>
+              <span class="link address-delete" (click)="addressDelete(address.id)">删除</span>
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
       <div class="address-add">
         <div class="address-new">
           <i class="fa fa-plus"></i>
-          <div class="text">使用新地址</div>
+          <div class="text" mat-raised-button (click)="openDialog()">使用新地址</div>
         </div>
       </div>
     </div>
@@ -86,5 +86,4 @@
       </div>
     </div>
   </div>
-  <div class="modal-wrap"></div>
 </div>

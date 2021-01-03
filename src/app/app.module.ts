@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MaterialModule } from './material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +18,7 @@ import { OrderConfirmModule } from './orderconfirm'
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    MaterialModule,
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
