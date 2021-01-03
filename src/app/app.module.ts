@@ -10,9 +10,14 @@ import { HomeModule } from './home';
 import { ProductModule } from './product';
 import { DetailModule } from './detail';
 import { CartModule } from './cart';
-import { UserLoginModule } from './userlogin'
 import { ResultModule } from './result'
 import { OrderConfirmModule } from './orderconfirm'
+import { OrderListModule } from './orderlist'
+import { OrderDetailModule } from './orderdetail'
+import { UserLoginModule } from './userlogin'
+import { UserCenterModule } from './usercenter'
+import { UserCenterUpdateModule } from './usercenterupdate'
+import { PassUpdateModule } from './passupdate'
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,9 +31,14 @@ import { OrderConfirmModule } from './orderconfirm'
     ProductModule,
     DetailModule,
     CartModule,
-    UserLoginModule,
     ResultModule,
-    OrderConfirmModule
+    OrderConfirmModule,
+    OrderListModule,
+    OrderDetailModule,
+    UserLoginModule,
+    UserCenterModule,
+    UserCenterUpdateModule,
+    PassUpdateModule
   ],
   providers: [],
   bootstrap: [AppComponent],
