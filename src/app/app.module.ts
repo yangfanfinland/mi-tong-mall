@@ -11,6 +11,7 @@ import { DetailModule } from './detail';
 import { CartModule } from './cart';
 import { UserLoginModule } from './userlogin'
 import { ResultModule } from './result'
+import { OrderConfirmModule } from './orderconfirm'
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { ResultModule } from './result'
     DetailModule,
     CartModule,
     UserLoginModule,
-    ResultModule
+    ResultModule,
+    OrderConfirmModule
   ],
   providers: [],
   bootstrap: [AppComponent],
