@@ -13,8 +13,8 @@
             <tr>
                 <th class="cart-cell cell-check">
                     <label class="cart-label">
-                        <input type="checkbox" class="cart-select-all" checked/>
-                        <!-- <input type="checkbox" class="cart-select-all" /> -->
+                        <input *ngIf="cart.allChecked" type="checkbox" class="cart-select-all" checked/>
+                        <input *ngIf="!cart.allChecked" type="checkbox" class="cart-select-all" />
                         <span>全选</span>
                     </label>
                 </th>
@@ -31,13 +31,13 @@
             <tr>
                 <td class="cart-cell cell-check">
                     <label class="cart-label">
-                        <input type="checkbox" class="cart-select" checked/>
-                        <!-- <input type="checkbox" class="cart-select" /> -->
+                        <input *ngIf="productVo.productChecked" type="checkbox" class="cart-select" checked/>
+                        <input *ngIf="!productVo.productChecked" type="checkbox" class="cart-select" />
                     </label>
                 </td>
                 <td class="cart-cell cell-img">
                     <a class="link" href="./detail.html?productId={{productVo.productId}}">
-                        <img class="p-img" src="{{productVo.imageHost}}{{productVo.productMainImage}}" alt="{{productVo.productName}}" />
+                        <img class="p-img" src="{{cart.imageHost}}{{productVo.productMainImage}}" alt="{{productVo.productName}}" />
                     </a>
                 </td>
                 <td class="cart-cell cell-info">
@@ -59,8 +59,8 @@
     <div class="cart-footer">
         <div class="select-con">
             <label>
-                <!-- <input type="checkbox" class="cart-select-all" checked/> -->
-                <input type="checkbox" class="cart-select-all" />
+                <input *ngIf="cart.allChecked" type="checkbox" class="cart-select-all" checked/>
+                <input *ngIf="!cart.allChecked"  type="checkbox" class="cart-select-all" />
                 <span>全选</span>
             </label>
         </div>

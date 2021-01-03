@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/shared';
-import { ListService } from 'src/app/list';
+import { ProductService } from 'src/app/list';
 import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class ListContainerComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private service: ListService
+    private service: ProductService
   ) {}
 
   ngOnInit(): void {

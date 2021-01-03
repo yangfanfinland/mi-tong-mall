@@ -25,8 +25,7 @@ export class UserLoginContainerComponent implements OnInit {
 
   }
 
-  Login() {
-    console.log(this.username, this.password)
+  login() {
     this.service.login({ username: this.username.value, password: this.password.value }).subscribe(user => {
       console.log(user)
       window.location.href = './home';

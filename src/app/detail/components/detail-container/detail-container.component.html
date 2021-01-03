@@ -36,11 +36,11 @@
       </div>
       <div class="p-info-item p-count-con">
         <span class="label">数量:</span>
-        <input class="p-count" value="1" readonly="" />
-        <span class="p-count-btn plus">+</span>
-        <span class="p-count-btn minus">-</span>
+        <input class="p-count" [(ngModel)]="count" readonly="" />
+        <span class="p-count-btn plus" (click)="plus()">+</span>
+        <span class="p-count-btn minus" (click)="minus()">-</span>
       </div>
-      <div class="p-info-item">
+      <div class="p-info-item" (click)="addToCart()">
         <a class="btn cart-add">加入购物车</a>
       </div>
     </div>
