@@ -13,8 +13,7 @@
             <tr>
                 <th class="cart-cell cell-check">
                     <label class="cart-label">
-                        <input *ngIf="cart.allChecked" type="checkbox" class="cart-select-all" checked/>
-                        <input *ngIf="!cart.allChecked" type="checkbox" class="cart-select-all" />
+                        <input [(ngModel)]="cart.allChecked" (change)="cartSelectAll(cart.allChecked)" type="checkbox" class="cart-select-all" />
                         <span>全选</span>
                     </label>
                 </th>
@@ -31,8 +30,7 @@
             <tr>
                 <td class="cart-cell cell-check">
                     <label class="cart-label">
-                        <input *ngIf="productVo.productChecked" type="checkbox" class="cart-select" checked/>
-                        <input *ngIf="!productVo.productChecked" type="checkbox" class="cart-select" />
+                        <input [(ngModel)]="productVo.productChecked" (change)="cartSelect(productVo.productChecked, productVo.productId)" type="checkbox" class="cart-select" />
                     </label>
                 </td>
                 <td class="cart-cell cell-img">
@@ -45,13 +43,13 @@
                 </td>
                 <td class="cart-cell cell-price">￥{{productVo.productPrice}}</td>
                 <td class="cart-cell cell-count">
-                    <span class="count-btn minus">-</span>
+                    <span class="count-btn minus" (click)="minus(productVo.quantity, productVo.productId)">-</span>
                     <input class="count-input" value="{{productVo.quantity}}" data-max="{{productVo.productStock}}"/>  
-                    <span class="count-btn plus">+</span>
+                    <span class="count-btn plus" (click)="plus(productVo.quantity, productVo.productStock, productVo.productId)">+</span>
                 </td>
                 <td class="cart-cell cell-total">￥{{productVo.productTotalPrice}}</td>
                 <td class="cart-cell cell-opera">
-                    <span class="link cart-delete">删除</span>
+                    <span class="link cart-delete" (click)="cartDelete(productVo.productId)">删除</span>
                 </td>
             </tr>
         </table>
@@ -59,13 +57,12 @@
     <div class="cart-footer">
         <div class="select-con">
             <label>
-                <input *ngIf="cart.allChecked" type="checkbox" class="cart-select-all" checked/>
-                <input *ngIf="!cart.allChecked"  type="checkbox" class="cart-select-all" />
+                <input [(ngModel)]="cart.allChecked" (change)="cartSelectAll(cart.allChecked)" type="checkbox" class="cart-select-all" />
                 <span>全选</span>
             </label>
         </div>
         <div class="delete-con">
-            <span class="link delete-selected">
+            <span class="link delete-selected" (click)="deleteSelected(cart)">
                 <i class="fa fa-trash-o"></i>
                 <span>删除选中</span>
             </span>
