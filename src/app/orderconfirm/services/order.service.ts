@@ -40,7 +40,7 @@ export class OrderService {
   // Get order detail
   getOrderDetail(orderNumber: number) {
     return this.http.get<any>(
-      `${environment.baseUrl}/order/detail.do?orderNumber=${orderNumber}`,
+      `${environment.baseUrl}/order/detail.do?orderNo=${orderNumber}`,
       {
         withCredentials: true,
       }
@@ -49,7 +49,7 @@ export class OrderService {
   // Cancel order
   cancelOrder(orderNumber: number) {
     return this.http.get<any>(
-      `${environment.baseUrl}/order/cancel.do?orderNumber=${orderNumber}`,
+      `${environment.baseUrl}/order/cancel.do?orderNo=${orderNumber}`,
       {
         withCredentials: true,
       }
