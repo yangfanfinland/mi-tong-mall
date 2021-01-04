@@ -4,7 +4,7 @@ import { UserCenterUpdateContainerComponent } from './components';
 
 const routes: Routes = [
   {
-    path: 'user-info-update',
+    path: 'user-center-update',
     component: UserCenterUpdateContainerComponent
   }
 ];

@@ -1,1 +1,65 @@
-User center update working
+<div class="crumb">
+  <div class="w">
+    <div class="crumb-con">
+      <a class="link" href="./index.html">MTMall</a>
+      <span>></span>
+      <span class="link-text">user-center-update</span>
+    </div>
+  </div>
+</div>
+<div class="page-wrap w">
+  <app-nav-side></app-nav-side>
+  <div class="content with-nav">
+    <div class="panel">
+      <div class="panel-title">个人中心</div>
+      <div class="panel-body">
+        <!-- <div class="loading"></div> -->
+        <div *ngIf="user$ | async as user">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="user-info">
+            <div class="form-line">
+              <span class="label">用户名：</span>
+              <span class="text">{{ user.username }}</span>
+            </div>
+            <div class="form-line">
+              <span class="label">电 话：</span>
+              <input
+                class="input"
+                name="phone"
+                autocomplete="off"
+                [(ngModel)]="user.phone"
+              />
+            </div>
+            <div class="form-line">
+              <span class="label">邮 箱：</span>
+              <input
+                class="input"
+                name="email"
+                autocomplete="off"
+                [(ngModel)]="user.email"
+              />
+            </div>
+            <div class="form-line">
+              <span class="label">问 题：</span>
+              <input
+                class="input"
+                name="question"
+                autocomplete="off"
+                [(ngModel)]="user.question"
+              />
+            </div>
+            <div class="form-line">
+              <span class="label">答 案：</span>
+              <input
+                class="input"
+                name="answer"
+                autocomplete="off"
+                [(ngModel)]="user.answer"
+              />
+            </div>
+            <button type="submit" class="btn btn-submit">提交</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

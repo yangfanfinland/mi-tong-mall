@@ -75,7 +75,8 @@ export class UserService {
     const headers = { 'Content-Type': 'application/json' };
     return this.http.post<any>(`${environment.baseUrl}/user/update_information.do`, userInfo, {
       headers,
-      withCredentials: true
+      withCredentials: true,
+      params: userInfo
     });
   }
   // Logout
