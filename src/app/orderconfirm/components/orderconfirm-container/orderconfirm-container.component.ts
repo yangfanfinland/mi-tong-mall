@@ -5,7 +5,6 @@ import { Product, ProductDetail } from 'src/app/shared';
 import { UserService } from 'src/app/userlogin';
 import { map, filter, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import { AddressService, OrderService } from '../../services';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { ModalComponent } from '../../../material/components';
@@ -107,5 +106,12 @@ export class OrderConfirmContainerComponent implements OnInit {
   }
   addressItem(addressId: string) {
     this.selectedAddressId = addressId
+  }
+  orderSubmit() {
+    if (!this.selectedAddressId) {
+      alert('Choose address for delivery first!')
+    }
+    this.service.createOrder(this.selectedAddressId).subscribe(response => console.log(response))
+    this.router.navigate(['/payment']);
   }
 }

@@ -1,1 +1,63 @@
-Order list working
+<div class="crumb">
+  <div class="w">
+    <div class="crumb-con">
+      <a class="link" href="./home">MTMall</a>
+      <span>></span>
+      <span class="link-text">order list</span>
+    </div>
+  </div>
+</div>
+<div class="page-wrap w">
+  <app-nav-side></app-nav-side>
+  <div class="content with-nav">
+    <div class="panel">
+      <div class="panel-title">Order list</div>
+      <div class="panel-body">
+        <div class="order-list-con"></div>
+        <div class="pagination">
+          <table class="order-list-table header">
+            <tr>
+              <th class="cell cell-img">&nbsp;</th>
+              <th class="cell cell-info">商品信息</th>
+              <th class="cell cell-price">单价</th>
+              <th class="cell cell-count">数量</th>
+              <th class="cell cell-total">小计</th>
+            </tr>
+          </table>
+          <table class="order-list-table order-item" *ngFor="let order of list$ | async">
+            <tr>
+                <td colspan="5" class="order-info">
+                    <span class="order-text">
+                        <span>订单号：</span>
+                        <a class="link order-num" href="./order-detail?orderNumber={{order.orderNo}}" target="_blank">{{order.orderNo}}</a>
+                    </span>
+                    <span class="order-text">{{order.createTime}}</span>
+                    <span class="order-text">收件人：{{order.receiverName}}</span>
+                    <span class="order-text">订单状态：{{order.statusDesc}}</span>
+                    <span class="order-text">
+                        <span>订单总价：</span>
+                        <span class="order-total">￥{{order.payment}}</span>
+                    </span>
+                    <a class="link order-detail" href="./order-detail?orderNumber={{order.orderNo}}" target="_blank">查看详情></a>
+                </td>
+            </tr>
+            <tr *ngFor="let orderItemVo of order.orderItemVoList">
+                <td class="cell cell-img">
+                    <a href="./detail?productId={{orderItemVo.productId}}" target="_blank">
+                        <img class="p-img" src="{{order.imageHost}}{{orderItemVo.productImage}}" alt="{{orderItemVo.productName}}" />
+                    </a>
+                </td>
+                <td class="cell cell-info">
+                    <a class="link" href="./detail?productId={{orderItemVo.productId}}" target="_blank">{{orderItemVo.productName}}</a>
+                </td>
+                <td class="cell cell-price">￥{{orderItemVo.currentUnitPrice}}</td>
+                <td class="cell cell-count">{{orderItemVo.quantity}}</td>
+                <td class="cell cell-total">￥{{orderItemVo.totalPrice}}</td>
+            </tr>
+        </table>
+        <p class="err-tip" *ngIf="!(list$ | async)">您暂时还没有订单</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
