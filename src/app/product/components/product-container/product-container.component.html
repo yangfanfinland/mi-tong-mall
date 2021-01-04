@@ -9,8 +9,8 @@
 </div>
 <div class="page-wrap w">
   <ul class="sort-con">
-    <li class="sort-item active" data-type="default">Default</li>
-    <li class="sort-item" data-type="price">
+    <li class="sort-item" [class.active]="type === 'default'" data-type="default" (click)="sort('default')">Default</li>
+    <li class="sort-item" [class.active]="type === 'price'" data-type="price" (click)="sort('price')">
       <span>Price</span>
       <i class="fa fa-sort-asc"></i>
       <i class="fa fa-sort-desc"></i>
