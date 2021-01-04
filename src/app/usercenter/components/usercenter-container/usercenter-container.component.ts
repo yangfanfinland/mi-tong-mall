@@ -3,9 +3,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product, ProductDetail } from 'src/app/shared';
 import { UserService } from 'src/app/userlogin';
-import { map, filter, switchMap } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-usercentercontainer',
@@ -14,14 +12,13 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserCenterContainerComponent implements OnInit {
-  username = new FormControl('')
-  password = new FormControl('')
+  user$: Observable<any>;
 
   constructor(
     private service: UserService
   ) {}
 
   ngOnInit(): void {
-
+    this.user$ = this.service.getUserInfo().pipe(map(response => response.data));
   }
 }

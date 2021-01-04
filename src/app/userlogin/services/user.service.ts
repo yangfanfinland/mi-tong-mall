@@ -42,14 +42,14 @@ export class UserService {
   }
   // Get user password question
   getQuestion(username: string) {
-    return this.http.get<any>(`${environment.baseUrl}/user/user/forget_get_question.do?username=${username}`, {
+    return this.http.get<any>(`${environment.baseUrl}/user/forget_get_question.do?username=${username}`, {
       withCredentials: true
     });
   }
   // Check password reminder question answer
   checkAnswer(userInfo: any) {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(`${environment.baseUrl}/user/user/forget_check_answer.do`, userInfo, {
+    return this.http.post<any>(`${environment.baseUrl}/user/forget_check_answer.do`, userInfo, {
       headers,
       withCredentials: true
     });
@@ -57,7 +57,7 @@ export class UserService {
   // Reset password
   resetPassword(userInfo: any) {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(`${environment.baseUrl}/user/user/forget_reset_password.do`, userInfo, {
+    return this.http.post<any>(`${environment.baseUrl}/user/forget_reset_password.do`, userInfo, {
       headers,
       withCredentials: true
     });
@@ -65,7 +65,7 @@ export class UserService {
   // Get user info
   getUserInfo() {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(`${environment.baseUrl}/user/user/get_user_info.do`, undefined, {
+    return this.http.post<any>(`${environment.baseUrl}/user/get_user_info.do`, undefined, {
       headers,
       withCredentials: true
     });
@@ -73,7 +73,7 @@ export class UserService {
   // Update user info
   updateUserInfo(userInfo: any) {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(`${environment.baseUrl}/user/user/update_information.do`, userInfo, {
+    return this.http.post<any>(`${environment.baseUrl}/user/update_information.do`, userInfo, {
       headers,
       withCredentials: true
     });
@@ -81,7 +81,7 @@ export class UserService {
   // Logout
   logout() {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post<any>(`${environment.baseUrl}/user/user/logout.do`, undefined, {
+    return this.http.post<any>(`${environment.baseUrl}/user/logout.do`, undefined, {
       headers,
       withCredentials: true
     });

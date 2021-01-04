@@ -1,1 +1,43 @@
-User center working
+<div class="crumb">
+  <div class="w">
+    <div class="crumb-con">
+      <a class="link" href="./home">MTMall</a>
+      <span>></span>
+      <span class="link-text">user-center</span>
+    </div>
+  </div>
+</div>
+<div class="page-wrap w">
+  <app-nav-side></app-nav-side>
+  <div class="content with-nav">
+    <div class="panel">
+      <div class="panel-title">个人中心</div>
+      <div class="panel-body">
+        <!-- <div class="loading"></div> -->
+        <div class="user-info" *ngIf="user$ | async as user">
+          <div class="form-line">
+            <span class="label">用户名：</span>
+            <span class="text">{{ user.username }}</span>
+          </div>
+          <div class="form-line">
+            <span class="label">电 话：</span>
+            <span class="text">{{ user.phone }}</span>
+          </div>
+          <div class="form-line">
+            <span class="label">邮 箱：</span>
+            <span class="text">{{ user.email }}</span>
+          </div>
+          <div class="form-line">
+            <span class="label">问 题：</span>
+            <span class="text">{{ user.question }}</span>
+          </div>
+          <div class="form-line">
+            <span class="label">答 案：</span>
+            <span class="text">{{ user.answer }}</span>
+          </div>
+          <a class="btn btn-submit" href="./user-center-update">编辑</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

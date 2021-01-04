@@ -1,19 +1,17 @@
 <div class="nav">
   <div class="w">
     <div class="user-info">
-      <span class="user" *ngIf="user$ | async as user; else login">
+      <span class="user" *ngIf="user$ | async as user">
         <span class="link-text">
           欢迎，
           <span class="username">{{ user.username }}</span>
         </span>
         <span class="link js-logout">退出</span>
       </span>
-      <ng-template #login>
-        <span class="user not-login">
-          <span class="link js-login">登录</span>
-          <span class="link js-register">注册</span>
-        </span>
-      </ng-template>
+      <span class="user not-login" *ngIf="!(user$ | async)">
+        <span class="link js-login" (click)="login()">登录</span>
+        <span class="link js-register" (click)="register()">注册</span>
+      </span>
     </div>
     <ul class="nav-list">
       <li class="nav-item">
