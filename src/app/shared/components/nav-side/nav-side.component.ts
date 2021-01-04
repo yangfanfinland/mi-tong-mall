@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nav-side',
@@ -13,13 +13,16 @@ import { Router } from '@angular/router';
 })
 export class NavSideComponent implements OnInit {
   navList = [
-    { name: 'user-center', desc: '个人中心', href: './user-center' },
-    { name: 'order-list', desc: '我的订单', href: './order-list' },
-    { name: 'user-pass-update', desc: '修改密码', href: './user-pass-update' },
-    { name: 'about', desc: '关于MMall', href: './about' },
+    { name: 'user-center', desc: '个人中心', href: '/user-center' },
+    { name: 'order-list', desc: '我的订单', href: '/order-list' },
+    { name: 'pass-update', desc: '修改密码', href: '/pass-update' },
+    { name: 'about', desc: '关于MMall', href: '/about' },
   ];
+  currentPath: string;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute,) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentPath = this.router.url
+  }
 }

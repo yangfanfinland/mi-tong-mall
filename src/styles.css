@@ -101,6 +101,17 @@ input[type="checkbox"] {
   opacity: 0.6;
 }
 
+/* 面包屑导航 */
+.crumb {
+  margin-bottom: 15px;
+  height: 50px;
+  line-height: 50px;
+  background: #eee;
+  color: #888;
+  font-size: 14px;
+  border-top: 2px solid #c60023;
+}
+
 .content.with-nav {
   float: left;
   width: 950px;

@@ -1,5 +1,5 @@
 <ul class="nav-side">
-  <li *ngFor="let nav of navList">
+  <li class="nav-item" *ngFor="let nav of navList" [class.active]="currentPath==nav.href" >
     <a class="link" href="{{ nav.href }}">{{ nav.desc }}</a>
   </li>
 </ul>
