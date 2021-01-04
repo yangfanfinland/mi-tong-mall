@@ -3,7 +3,7 @@
     <div class="crumb-con">
       <a class="link" href="./index.html">MTMall</a>
       <span> > </span>
-      <span class="link-text">商品详情页</span>
+      <span class="link-text">Product detail</span>
     </div>
   </div>
 </div>
@@ -41,14 +41,14 @@
         <span class="p-count-btn minus" (click)="minus()">-</span>
       </div>
       <div class="p-info-item" (click)="addToCart()">
-        <a class="btn cart-add">加入购物车</a>
+        <a class="btn cart-add">Add to shopping cart</a>
       </div>
     </div>
   </div>
   <div class="detail-wrap">
     <div class="detail-tab-con">
       <ul class="tab-list">
-        <li class="tab-item active">详细描述</li>
+        <li class="tab-item active">Details</li>
       </ul>
     </div>
     <div class="detail-con" [innerHTML]="product.detail"></div>

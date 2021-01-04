@@ -1,7 +1,7 @@
 <div class="page-wrap">
   <div class="w">
     <div class="user-con">
-      <div class="user-title">用户登录</div>
+      <div class="user-title">User login</div>
       <div class="user-box">
         <div class="error-item">
           <i class="fa fa-minus-circle error-icon"></i>
@@ -14,7 +14,7 @@
           <input
             class="user-content"
             id="username"
-            placeholder="请输入用户名"
+            placeholder="Username"
             autocomplete="off"
             [formControl]="username"
             required
@@ -28,19 +28,19 @@
             type="password"
             class="user-content"
             id="password"
-            placeholder="请输入密码"
+            placeholder="Password"
             autocomplete="off"
             [formControl]="password"
             required
           />
         </div>
-        <a class="btn btn-submit" id="submit" (click)="login()">登录</a>
+        <a class="btn btn-submit" id="submit" (click)="login()">Login</a>
         <div class="link-item">
           <a class="link" href="./user-pass-reset.html" target="_blank"
-            >忘记密码</a
+            >Forgot password?</a
           >
           <a class="link" href="./user-register.html" target="_blank"
-            >免费注册</a
+            >Register</a
           >
         </div>
       </div>

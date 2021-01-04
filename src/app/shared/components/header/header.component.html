@@ -3,32 +3,32 @@
     <div class="user-info">
       <span class="user" *ngIf="user$ | async as user">
         <span class="link-text">
-          欢迎，
-          <span class="username">{{ user.username }}</span>
+          Welcome,
+          <span class="username"> {{ user.username }} </span>
         </span>
-        <span class="link js-logout">退出</span>
+        <span class="link js-logout" (click)="logout()">Logout</span>
       </span>
       <span class="user not-login" *ngIf="!(user$ | async)">
-        <span class="link js-login" (click)="login()">登录</span>
-        <span class="link js-register" (click)="register()">注册</span>
+        <span class="link js-login" (click)="login()">Login</span>
+        <span class="link js-register" (click)="register()">Register</span>
       </span>
     </div>
     <ul class="nav-list">
       <li class="nav-item">
         <a class="link" href="./cart">
-          <i class="fa fa-shopping-cart"></i> 购物车(<span class="cart-count"
+          <i class="fa fa-shopping-cart"></i> Shopping cart(<span class="cart-count"
             >{{ car$ | async }}</span
           >)
         </a>
       </li>
       <li class="nav-item">
-        <a class="link" href="./order-list">我的订单</a>
+        <a class="link" href="./order-list">My order</a>
       </li>
       <li class="nav-item">
-        <a class="link" href="./user-center">我的MTMall</a>
+        <a class="link" href="./user-center">My MTMall</a>
       </li>
       <li class="nav-item">
-        <a class="link" href="./about">关于MTMall</a>
+        <a class="link" href="./about">About</a>
       </li>
     </ul>
   </div>

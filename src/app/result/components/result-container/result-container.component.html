@@ -1,29 +1,29 @@
 <div class="page-wrap w">
   <div class="result-con register-success" *ngIf="(type$ | async) == 'register'">
-    <h1 class="result-title">恭喜您，注册成功！</h1>
+    <h1 class="result-title">Congradulations, register successfully!</h1>
     <div class="result-content">
-      <a class="link" href="./home">回到首页</a>
-      <a class="link" href="./user-login">立即去登录</a>
+      <a class="link" href="./home">Back Home</a>
+      <a class="link" href="./user-login">Go to login</a>
     </div>
   </div>
   <div class="result-con pass-reset-success" *ngIf="(type$ | async) == 'pass-reset'">
-    <h1 class="result-title">恭喜您，重置密码成功！</h1>
+    <h1 class="result-title">Congradulations, password resetted successfully!</h1>
     <div class="result-content">
-      <a class="link" href="./home">回到首页</a>
-      <a class="link" href="./user-login">立即去登录</a>
+      <a class="link" href="./home">Back Home</a>
+      <a class="link" href="./user-login">Go to login</a>
     </div>
   </div>
   <div class="result-con cart-add-success" *ngIf="(type$ | async) == 'cart-add'">
-    <h1 class="result-title">您的商品已成功加入购物车！</h1>
+    <h1 class="result-title">Product has been added to shopping cart!</h1>
     <div class="result-content">
-      <a class="link" href="./home">继续购物</a>
-      <a class="link" href="./cart">去购物车查看</a>
+      <a class="link" href="./home">Continue shopping</a>
+      <a class="link" href="./cart">View shopping cart</a>
     </div>
   </div>
   <div class="result-con default-success" *ngIf="(type$ | async) == 'default'">
-    <h1 class="result-title">恭喜您，操作成功！</h1>
+    <h1 class="result-title">Congradulations, operate successfully!</h1>
     <div class="result-content">
-      <a class="link" href="./home">回到首页</a>
+      <a class="link" href="./home">Back Home</a>
     </div>
   </div>
 </div>

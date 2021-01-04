@@ -3,7 +3,7 @@
     <div class="crumb-con">
       <a class="link" href="./home">MTMall</a>
       <span> > </span>
-      <span class="link-text">购物车</span>
+      <span class="link-text">Shopping cart</span>
     </div>
   </div>
 </div>
@@ -14,14 +14,14 @@
                 <th class="cart-cell cell-check">
                     <label class="cart-label">
                         <input [(ngModel)]="cart.allChecked" (change)="cartSelectAll(cart.allChecked)" type="checkbox" class="cart-select-all" />
-                        <span>全选</span>
+                        <span>All</span>
                     </label>
                 </th>
-                <th class="cart-cell cell-info">商品信息</th>
-                <th class="cart-cell cell-price">单价</th>
-                <th class="cart-cell cell-count">数量</th>
-                <th class="cart-cell cell-total">合计</th>
-                <th class="cart-cell cell-opera">操作</th>
+                <th class="cart-cell cell-info">Product information</th>
+                <th class="cart-cell cell-price">Price</th>
+                <th class="cart-cell cell-count">Amount</th>
+                <th class="cart-cell cell-total">Sub total</th>
+                <th class="cart-cell cell-opera">Operate</th>
             </tr>
         </table>
     </div>
@@ -49,7 +49,7 @@
                 </td>
                 <td class="cart-cell cell-total">￥{{productVo.productTotalPrice}}</td>
                 <td class="cart-cell cell-opera">
-                    <span class="link cart-delete" (click)="cartDelete(productVo.productId)">删除</span>
+                    <span class="link cart-delete" (click)="cartDelete(productVo.productId)">Delete</span>
                 </td>
             </tr>
         </table>
@@ -58,23 +58,23 @@
         <div class="select-con">
             <label>
                 <input [(ngModel)]="cart.allChecked" (change)="cartSelectAll(cart.allChecked)" type="checkbox" class="cart-select-all" />
-                <span>全选</span>
+                <span>All</span>
             </label>
         </div>
         <div class="delete-con">
             <span class="link delete-selected" (click)="deleteSelected(cart)">
                 <i class="fa fa-trash-o"></i>
-                <span>删除选中</span>
+                <span>Delete selected</span>
             </span>
         </div>
         <div class="submit-con">
-            <span>总价：</span>
+            <span>Total：</span>
             <span class="submit-total">￥{{cart.cartTotalPrice}}</span>
-            <span class="btn btn-submit" (click)="checkout()">去结算</span>
+            <span class="btn btn-submit" (click)="checkout()">Checkout</span>
         </div>
     </div>
 </div>
 <p class="err-tip" *ngIf="!cart$">
-    <span>您的购物车空空如也，</span>
-    <a href="./index.html">立即去购物</a>
+    <span>Your shopping cart is empty, </span>
+    <a href="./index.html">Go to shopping</a>
 </p>

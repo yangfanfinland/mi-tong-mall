@@ -11,17 +11,17 @@
   <app-nav-side></app-nav-side>
   <div class="content with-nav">
     <div class="panel">
-      <div class="panel-title">个人中心</div>
+      <div class="panel-title">Personal center</div>
       <div class="panel-body">
         <!-- <div class="loading"></div> -->
         <div *ngIf="user$ | async as user">
           <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="user-info">
             <div class="form-line">
-              <span class="label">用户名：</span>
+              <span class="label">User: </span>
               <span class="text">{{ user.username }}</span>
             </div>
             <div class="form-line">
-              <span class="label">电 话：</span>
+              <span class="label">Mobile: </span>
               <input
                 class="input"
                 name="phone"
@@ -30,7 +30,7 @@
               />
             </div>
             <div class="form-line">
-              <span class="label">邮 箱：</span>
+              <span class="label">E-mail: </span>
               <input
                 class="input"
                 name="email"
@@ -39,7 +39,7 @@
               />
             </div>
             <div class="form-line">
-              <span class="label">问 题：</span>
+              <span class="label">Question: </span>
               <input
                 class="input"
                 name="question"
@@ -48,7 +48,7 @@
               />
             </div>
             <div class="form-line">
-              <span class="label">答 案：</span>
+              <span class="label">Answer: </span>
               <input
                 class="input"
                 name="answer"
@@ -56,7 +56,7 @@
                 [(ngModel)]="user.answer"
               />
             </div>
-            <button type="submit" class="btn btn-submit">提交</button>
+            <button type="submit" class="btn btn-submit">Update</button>
           </form>
         </div>
       </div>

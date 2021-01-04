@@ -30,4 +30,11 @@ export class HeaderComponent implements OnInit {
   register() {
     this.router.navigate(['/register']);
   }
+
+  logout() {
+    this.http.post<any>(`${environment.baseUrl}/user/logout.do`, undefined, { withCredentials: true }).subscribe(response => {
+      console.log(response)
+    })
+    window.location.reload();
+  }
 }
