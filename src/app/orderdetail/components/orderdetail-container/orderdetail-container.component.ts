@@ -1,20 +1,12 @@
 import {
   ChangeDetectionStrategy,
-  OnInit,
-  ChangeDetectorRef,
+  OnInit
 } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { ProductDetail } from 'src/app/shared';
+import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
-import { ModalComponent } from '../../../material/components';
 import { OrderService } from 'src/app/orderconfirm/services';
 
 @Component({

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
+import { ProductDetail } from 'src/app/shared';
 import { ProductService } from 'src/app/product';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/cart';
 

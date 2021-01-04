@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
 import { CartService } from 'src/app/cart';
 import { map } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-container',
@@ -19,7 +18,6 @@ export class CartContainerComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private service: CartService
   ) {}
 

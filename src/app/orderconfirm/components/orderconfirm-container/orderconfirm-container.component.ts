@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
-import { UserService } from 'src/app/userlogin';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddressService, OrderService } from '../../services';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
@@ -109,7 +107,8 @@ export class OrderConfirmContainerComponent implements OnInit {
   }
   orderSubmit() {
     if (!this.selectedAddressId) {
-      alert('Choose address for delivery first!')
+      alert('Choose address for delivery first!');
+      return;
     }
     this.service.createOrder(this.selectedAddressId).subscribe(response => console.log(response))
     this.router.navigate(['/payment']);
