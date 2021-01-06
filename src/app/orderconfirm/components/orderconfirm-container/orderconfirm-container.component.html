@@ -1,33 +1,33 @@
 <div class="crumb">
   <div class="w">
     <div class="crumb-con">
-      <a class="link" href="./index.html">MTMall</a>
+      <a class="link" href="/home">MTMall</a>
       <span> > </span>
-      <span class="link-text">确认订单</span>
+      <span class="link-text">Confirm order</span>
     </div>
   </div>
 </div>
 <div class="page-wrap w">
   <div class="panel">
-    <h1 class="panel-title">收货地址</h1>
+    <h1 class="panel-title">Receiver address</h1>
     <div class="panel-body address-con">
       <ng-container *ngFor="let address of addressList$ | async">
         <div class="address-item" [class.active]="address.id == selectedAddressId" (click)="addressItem(address.id)">
           <div class="address-title">
             {{ address.receiverCity }} {{ address.receiverProvince }} （
-            {{ address.receiverName }} 收 ）
+            {{ address.receiverName }} receive ）
           </div>
           <div class="address-detail">
             {{ address.receiverAddress }} {{ address.receiverPhone }}
           </div>
           <div class="address-opera">
             <span class="link address-update" (click)="editAddress(address.id)"
-              >编辑</span
+              >Edit</span
             >
             <span
               class="link address-delete"
               (click)="addressDelete(address.id)"
-              >删除</span
+              >Delete</span
             >
           </div>
         </div>
@@ -36,22 +36,22 @@
         <div class="address-new" (click)="openDialog()">
           <i class="fa fa-plus"></i>
           <div class="text">
-            使用新地址
+            New address
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="panel">
-    <h1 class="panel-title">商品清单</h1>
+    <h1 class="panel-title">Product list</h1>
     <div class="panel-body product-con" *ngIf="orderItem$ | async as orderItem">
       <table class="product-table">
         <tr>
           <th class="cell-img">&nbsp;</th>
-          <th class="cell-info">商品描述</th>
-          <th class="cell-price">价格</th>
-          <th class="cell-count">数量</th>
-          <th class="cell-total">小计</th>
+          <th class="cell-info">Product description</th>
+          <th class="cell-price">Price</th>
+          <th class="cell-count">Amount</th>
+          <th class="cell-total">Sub total</th>
         </tr>
         <ng-container *ngFor="let orderItemVo of orderItem.orderItemVoList">
           <tr>
@@ -82,9 +82,9 @@
         </ng-container>
       </table>
       <div class="submit-con">
-        <span>订单总价:</span>
-        <span class="submit-total">￥{{ orderItem.productTotalPrice }}</span>
-        <span class="btn order-submit" (click)="orderSubmit()">提交订单</span>
+        <span>Total: </span>
+        <span class="submit-total">€{{ orderItem.productTotalPrice }}</span>
+        <span class="btn order-submit" (click)="orderSubmit()">Submit order</span>
       </div>
     </div>
   </div>

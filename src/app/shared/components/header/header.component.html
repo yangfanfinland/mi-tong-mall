@@ -4,9 +4,9 @@
       <span class="user" *ngIf="user$ | async as user">
         <span class="link-text">
           Welcome,
-          <span class="username"> {{ user.username }} </span>
+          <span class="username"><b><i>{{ user.username }}</i></b></span>
         </span>
-        <span class="link js-logout" (click)="logout()">Logout</span>
+        <span class="link js-logout" (click)="logout()"> Logout</span>
       </span>
       <span class="user not-login" *ngIf="!(user$ | async)">
         <span class="link js-login" (click)="login()">Login</span>

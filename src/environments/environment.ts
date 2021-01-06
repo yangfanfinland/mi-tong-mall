@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080/mitongmallbackend_war'
+  baseUrl: 'http://localhost:8080/mitongmall'
+  //baseUrl: 'http://40.85.119.8:8080/mitongmall'
 };
 
 /*
