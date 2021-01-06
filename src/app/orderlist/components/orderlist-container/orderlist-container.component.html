@@ -1,7 +1,7 @@
 <div class="crumb">
   <div class="w">
     <div class="crumb-con">
-      <a class="link" href="./home">MTMall</a>
+      <a class="link" href="/home">MTMall</a>
       <span> > </span>
       <span class="link-text">Order list</span>
     </div>
@@ -29,7 +29,7 @@
                 <td colspan="5" class="order-info">
                     <span class="order-text">
                         <span>Order no: </span>
-                        <a class="link order-num" href="./order-detail?orderNumber={{order.orderNo}}" target="_blank">{{order.orderNo}}</a>
+                        <a class="link order-num" href="/order-detail?orderNumber={{order.orderNo}}" target="_blank">{{order.orderNo}}</a>
                     </span>
                     <span class="order-text">{{order.createTime}}</span>
                     <span class="order-text">Receiver: {{order.receiverName}}</span>
@@ -38,17 +38,17 @@
                         <span>Order total: </span>
                         <span class="order-total">￥{{order.payment}}</span>
                     </span>
-                    <a class="link order-detail" href="./order-detail?orderNumber={{order.orderNo}}" target="_blank">View details></a>
+                    <a class="link order-detail" href="/order-detail?orderNumber={{order.orderNo}}" target="_blank">View details></a>
                 </td>
             </tr>
             <tr *ngFor="let orderItemVo of order.orderItemVoList">
                 <td class="cell cell-img">
-                    <a href="./detail?productId={{orderItemVo.productId}}" target="_blank">
+                    <a href="/detail?productId={{orderItemVo.productId}}" target="_blank">
                         <img class="p-img" src="{{order.imageHost}}{{orderItemVo.productImage}}" alt="{{orderItemVo.productName}}" />
                     </a>
                 </td>
                 <td class="cell cell-info">
-                    <a class="link" href="./detail?productId={{orderItemVo.productId}}" target="_blank">{{orderItemVo.productName}}</a>
+                    <a class="link" href="/detail?productId={{orderItemVo.productId}}" target="_blank">{{orderItemVo.productName}}</a>
                 </td>
                 <td class="cell cell-price">￥{{orderItemVo.currentUnitPrice}}</td>
                 <td class="cell cell-count">{{orderItemVo.quantity}}</td>

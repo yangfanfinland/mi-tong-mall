@@ -34,12 +34,12 @@
                     </label>
                 </td>
                 <td class="cart-cell cell-img">
-                    <a class="link" href="./detail.html?productId={{productVo.productId}}">
+                    <a class="link" href="/detail?productId={{productVo.productId}}">
                         <img class="p-img" src="{{cart.imageHost}}{{productVo.productMainImage}}" alt="{{productVo.productName}}" />
                     </a>
                 </td>
                 <td class="cart-cell cell-info">
-                    <a class="link" href="./detail.html?productId={{productVo.productId}}">{{productVo.productName}}</a>
+                    <a class="link" href="/detail?productId={{productVo.productId}}">{{productVo.productName}}</a>
                 </td>
                 <td class="cart-cell cell-price">￥{{productVo.productPrice}}</td>
                 <td class="cart-cell cell-count">
@@ -76,5 +76,5 @@
 </div>
 <p class="err-tip" *ngIf="!cart$">
     <span>Your shopping cart is empty, </span>
-    <a href="./index.html">Go to shopping</a>
+    <a href="/home">Go to shopping</a>
 </p>

@@ -1,7 +1,7 @@
 <div class="crumb">
   <div class="w">
     <div class="crumb-con">
-      <a class="link" href="./home">MTMall</a>
+      <a class="link" href="/home">MTMall</a>
       <span> > </span>
       <span class="link-text">Order detail</span>
     </div>
@@ -35,7 +35,7 @@
             <span class="text">Payment method: {{ order.paymentTypeDesc }}</span>
           </div>
           <div class="text-line">
-            <a *ngIf="order.status == 10" class="btn" href="./payment?orderNumber={{ order.orderNo }}"
+            <a *ngIf="order.status == 10" class="btn" href="/payment?orderNumber={{ order.orderNo }}"
               >Go to pay</a
             >
             <a *ngIf="order.status == 10" class="btn order-cancel" (click)="orderCancel(order.orderNo)">Cancel order</a>
@@ -56,7 +56,7 @@
           </tr>
           <tr *ngFor="let orderItemVo of order.orderItemVoList">
             <td class="cell cell-img">
-              <a href="./detail?productId={{ orderItemVo.productId }}" target="_blank">
+              <a href="/detail?productId={{ orderItemVo.productId }}" target="_blank">
                 <img
                   class="p-img"
                   src="{{ order.imageHost }}{{ orderItemVo.productImage }}"
@@ -67,7 +67,7 @@
             <td class="cell cell-info">
               <a
                 class="link"
-                href="./detail?productId={{ orderItemVo.productId }}"
+                href="/detail?productId={{ orderItemVo.productId }}"
                 target="_blank"
                 >{{ orderItemVo.productName }}</a
               >
