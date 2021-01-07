@@ -1,1 +1,1 @@
-export * from './home-container/index';
+export * from './home-container';

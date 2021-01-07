@@ -22,6 +22,9 @@ import { PassUpdateModule } from './passupdate'
 import { PassResetModule } from './passreset'
 import { PaymentModule } from './payment'
 import { AboutModule } from './about'
+import {IvyCarouselModule} from 'angular-responsive-carousel';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,9 +49,10 @@ import { AboutModule } from './about'
     PassUpdateModule,
     PassResetModule,
     PaymentModule,
-    AboutModule
+    AboutModule,
+    IvyCarouselModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
