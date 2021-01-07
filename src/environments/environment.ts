@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  //baseUrl: 'http://miyixuan.com:8080/mitongmall'
-  baseUrl: 'http://localhost:8080/mitongmall'
+  // baseUrl: 'http://localhost:8080/mitongmall'
+  baseUrl: 'http://miyixuan.com:8080/mitongmall'
 };
 
 /*

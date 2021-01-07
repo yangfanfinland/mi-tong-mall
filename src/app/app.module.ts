@@ -22,7 +22,6 @@ import { PassUpdateModule } from './passupdate'
 import { PassResetModule } from './passreset'
 import { PaymentModule } from './payment'
 import { AboutModule } from './about'
-import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 
 
@@ -50,7 +49,6 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     PassResetModule,
     PaymentModule,
     AboutModule,
-    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

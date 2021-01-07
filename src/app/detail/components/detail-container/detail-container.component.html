@@ -12,13 +12,14 @@
     <div class="p-img-con">
       <div class="main-img-con">
         <img
+          #imageP
           class="main-img"
           src="{{ product.imageHost }}{{ product.mainImage }}"
           alt="{{ product.name }}"
         />
       </div>
       <ul class="p-img-list">
-        <li class="p-img-item" *ngFor="let subImage of product.subImages.split(',')">
+        <li class="p-img-item" (mouseenter)="imagePreview(product.imageHost, subImage)" *ngFor="let subImage of product.subImages.split(',')">
           <img class="p-img" src="{{ product.imageHost }}{{ subImage }}" alt="{{ subImage }}" />
         </li>
       </ul>
