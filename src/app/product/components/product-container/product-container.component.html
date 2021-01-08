@@ -17,23 +17,29 @@
     </li>
   </ul>
   <!-- list 容器 -->
-  <ul class="p-list-con" *ngFor="let product of products$ | async">
-      
-    <li class="p-item">
-        <div class="p-img-con">
-            <a class="link" href="/detail?productId={{product.id}}">
-                <img class="p-img" src="{{product.imageHost}}{{product.mainImage}}" alt="{{product.name}}" />
-            </a>
-        </div>
-        <div class="p-price-con">
-            <span class="p-price">￥{{product.price}}</span>
-        </div>
-        <div class="p-name-con">
-            <a class="p-name" href="/detail?productId={{product.id}}">{{product.name}}</a>
-        </div>
-    </li>
 
-  </ul>
+  <ng-container *ngIf="listResource$">
+    <ul class="p-list-con" *ngFor="let product of (listResource$ | async)?.list">
+      
+      <li class="p-item">
+          <div class="p-img-con">
+              <a class="link" href="/detail?productId={{product.id}}">
+                  <img class="p-img" src="{{product.imageHost}}{{product.mainImage}}" alt="{{product.name}}" />
+              </a>
+          </div>
+          <div class="p-price-con">
+              <span class="p-price">￥{{product.price}}</span>
+          </div>
+          <div class="p-name-con">
+              <a class="p-name" href="/detail?productId={{product.id}}">{{product.name}}</a>
+          </div>
+      </li>
+  
+    </ul>
+  </ng-container>
+  
   <!-- 分页容器 -->
-  <div class="pagination"></div>
+  <div class="pagination" *ngIf="listResource$">
+    <app-paginator [pageSize]="pageSize" [length]="(listResource$ | async)?.total" [onPageFiredCallback]="onPageFired"></app-paginator>
+  </div>
 </div>

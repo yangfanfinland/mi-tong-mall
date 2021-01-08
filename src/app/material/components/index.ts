@@ -1,1 +1,2 @@
-export * from './modal/index';
+export * from './modal';
+export * from './paginator';
