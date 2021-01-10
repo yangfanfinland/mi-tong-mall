@@ -1,7 +1,9 @@
+<app-header></app-header>
+<app-search></app-search>
 <div class="crumb">
   <div class="w">
     <div class="crumb-con">
-      <a class="link" href="/home">YIXUAN</a>
+      <a class="link" [routerLink]="['/home']">YIXUAN</a>
       <span> > </span>
       <span class="link-text">Confirm order</span>
     </div>
@@ -57,8 +59,7 @@
           <tr>
             <td class="cell-img">
               <a
-                href="/detail?productId={{ orderItemVo.productId }}"
-                target="_blank"
+                [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}"
               >
                 <img
                   class="p-img"
@@ -70,8 +71,7 @@
             <td class="cell-info">
               <a
                 class="link"
-                href="/detail?productId={{ orderItemVo.productId }}"
-                target="_blank"
+                [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}"
                 >{{ orderItemVo.productName }}</a
               >
             </td>

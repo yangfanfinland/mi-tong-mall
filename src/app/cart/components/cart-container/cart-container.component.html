@@ -1,7 +1,9 @@
+<app-header></app-header>
+<app-search></app-search>
 <div class="crumb">
   <div class="w">
     <div class="crumb-con">
-      <a class="link" href="./home">YIXUAN</a>
+      <a class="link" [routerLink]="['/home']">YIXUAN</a>
       <span> > </span>
       <span class="link-text">Shopping cart</span>
     </div>
@@ -34,12 +36,12 @@
                     </label>
                 </td>
                 <td class="cart-cell cell-img">
-                    <a class="link" href="/detail?productId={{productVo.productId}}">
+                    <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: productVo.productId}">
                         <img class="p-img" src="{{cart.imageHost}}{{productVo.productMainImage}}" alt="{{productVo.productName}}" />
                     </a>
                 </td>
                 <td class="cart-cell cell-info">
-                    <a class="link" href="/detail?productId={{productVo.productId}}">{{productVo.productName}}</a>
+                    <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: productVo.productId}">{{productVo.productName}}</a>
                 </td>
                 <td class="cart-cell cell-price">￥{{productVo.productPrice}}</td>
                 <td class="cart-cell cell-count">
@@ -76,5 +78,5 @@
 </div>
 <p class="err-tip" *ngIf="!cart$">
     <span>Your shopping cart is empty, </span>
-    <a href="/home">Go to shopping</a>
+    <a [routerLink]="['/home']">Go to shopping</a>
 </p>

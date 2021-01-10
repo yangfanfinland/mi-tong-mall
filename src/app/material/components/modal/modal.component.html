@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>使用新地址</h1>
+<h1 mat-dialog-title>Address</h1>
 <div mat-dialog-content>
   <!-- <p>收件人姓名：</p>
   <mat-form-field>
@@ -10,19 +10,19 @@
         <div class="form">
           <div class="form-line">
             <label class="label" for="receiver-name">
-              <span class="required">*</span>收件人姓名：
+              <span class="required">*</span>Receiver: 
             </label>
             <input
               class="form-item"
               id="receiver-name"
-              placeholder="请输入收件人姓名"
+              placeholder="Receiver name"
               [(ngModel)]="data.receiverName"
             />
           </div>
           <div class="form-line">
             <label class="label" for="receiver-province">
               <span class="required">*</span>
-              所在省：
+              Province: 
             </label>
             <input
               class="form-item"
@@ -33,7 +33,7 @@
           <div class="form-line">
             <label class="label" for="receiver-province">
               <span class="required">*</span>
-              所在城市：
+              City: 
             </label>
             <input
               class="form-item"
@@ -44,33 +44,33 @@
           <div class="form-line">
             <label class="label" for="receiver-address">
               <span class="required">*</span>
-              详细地址：
+              Detailed address: 
             </label>
             <input
               class="form-item"
               id="receiver-address"
-              placeholder="请精确到门牌号"
+              placeholder="Detailed address"
               [(ngModel)]="data.receiverAddress"
             />
           </div>
           <div class="form-line">
             <label class="label" for="receiver-phone">
               <span class="required">*</span>
-              收件人手机：
+              Mobile: 
             </label>
             <input
               class="form-item"
               id="receiver-phone"
-              placeholder="请输入11位手机号"
+              placeholder="eg: 0407777777"
               [(ngModel)]="data.receiverPhone"
             />
           </div>
           <div class="form-line">
-            <label class="label" for="receiver-zip">邮政编码：</label>
+            <label class="label" for="receiver-zip">Postal: </label>
             <input
               class="form-item"
               id="receiver-zip"
-              placeholder="如：100000"
+              placeholder="eg: 06666"
               [(ngModel)]="data.receiverZip"
             />
           </div>
@@ -80,8 +80,8 @@
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">取消</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
-    保存收货地址
+    Save
   </button>
 </div>

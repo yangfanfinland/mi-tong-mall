@@ -10,9 +10,10 @@ import {
 import { Observable } from 'rxjs';
 import { ProductDetail } from 'src/app/shared';
 import { ProductService } from 'src/app/product';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, take } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/cart';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-detail-container',
@@ -23,17 +24,21 @@ import { CartService } from 'src/app/cart';
 export class DetailContainerComponent implements OnInit, AfterViewInit {
   @ViewChild('imageP', { static: false })
   image: ElementRef;
-
   product$: Observable<ProductDetail | undefined>;
   count = 1;
   productId = 0;
+  user$: Observable<any>;
+
   constructor(
     private rd2: Renderer2,
     private router: Router,
     private route: ActivatedRoute,
     private service: ProductService,
-    private cartService: CartService
-  ) {}
+    private cartService: CartService,
+    private store: Store<{ user: any }>
+  ) {
+    this.user$ = this.store.select('user');
+  }
 
   ngOnInit(): void {
     this.product$ = this.route.queryParams.pipe(
@@ -51,8 +56,15 @@ export class DetailContainerComponent implements OnInit, AfterViewInit {
   }
 
   addToCart() {
-    this.cartService.addToCart(this.productId, this.count).subscribe((res) => {
-      this.router.navigate(['/result'], { queryParams: { type: 'cart-add' } });
+    this.user$.pipe(take(1)).subscribe((value) => {
+      if (!value.username) {
+        this.router.navigate(['/login']);
+        return;
+      }
+
+      this.cartService.addToCart(this.productId, this.count).subscribe((res) => {
+        this.router.navigate(['/result'], { queryParams: { type: 'cart-add' } });
+      });
     });
   }
 

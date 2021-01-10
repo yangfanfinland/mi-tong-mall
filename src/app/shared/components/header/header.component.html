@@ -14,21 +14,21 @@
       </span>
     </div>
     <ul class="nav-list">
-      <li class="nav-item">
-        <a class="link" href="/cart">
+      <li class="nav-item" *ngIf="user$ | async as user">
+        <a class="link" [routerLink]="['/cart']">
           <i class="fa fa-shopping-cart"></i> Shopping cart(<span class="cart-count"
             >{{ car$ | async }}</span
           >)
         </a>
       </li>
-      <li class="nav-item">
-        <a class="link" href="/order-list">My order</a>
+      <li class="nav-item" *ngIf="user$ | async as user">
+        <a class="link" [routerLink]="['/order-list']">My order</a>
+      </li>
+      <li class="nav-item" *ngIf="user$ | async as user">
+        <a class="link" [routerLink]="['/user-center']">My YIXUAN</a>
       </li>
       <li class="nav-item">
-        <a class="link" href="/user-center">My YIXUAN</a>
-      </li>
-      <li class="nav-item">
-        <a class="link" href="/about">About</a>
+        <a class="link" [routerLink]="['/about']">About</a>
       </li>
     </ul>
   </div>

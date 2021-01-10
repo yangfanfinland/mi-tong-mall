@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { PassUpdateModule } from './passupdate'
 import { PassResetModule } from './passreset'
 import { PaymentModule } from './payment'
 import { AboutModule } from './about'
+import { userReducer } from './store/user.reducer' 
 
 
 
@@ -29,6 +31,7 @@ import { AboutModule } from './about'
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({ user: userReducer }),
     MaterialModule,
     SharedModule,
     AppRoutingModule,

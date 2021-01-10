@@ -1,7 +1,9 @@
+<app-header></app-header>
+<app-search></app-search>
 <div class="crumb">
   <div class="w">
     <div class="crumb-con">
-      <a class="link" href="/home">YIXUAN</a>
+      <a class="link" [routerLink]="['/home']">YIXUAN</a>
       <span> > </span>
       <span class="link-text">User center</span>
     </div>
@@ -35,7 +37,7 @@
             <span class="label">Answer: </span>
             <span class="text">{{ user.answer }}</span>
           </div>
-          <a class="btn btn-submit" href="/user-center-update">Edit</a>
+          <a class="btn btn-submit" [routerLink]="['/user-center-update']">Edit</a>
         </div>
       </div>
     </div>

@@ -8,46 +8,44 @@ import { Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeContainerComponent implements OnInit {
-
-  @Input() sliderHeight = "370px";
+  @Input() sliderHeight = '370px';
   imageSliders = [
     {
       id: 1,
-      imgUrl: "/assets/image/banner/banner1.jpg",
-      link: "/product?categoryId=100021",
-      caption: ""
+      imgUrl: '/assets/image/banner/banner1.jpg',
+      link: '/product?categoryId=100021',
+      caption: '',
     },
     {
       id: 2,
-      imgUrl: "/assets/image/banner/banner2.jpg",
-      link: "/product?categoryId=100030",
-      caption: ""
+      imgUrl: '/assets/image/banner/banner2.jpg',
+      link: '/product?categoryId=100030',
+      caption: '',
     },
     {
       id: 3,
-      imgUrl: "/assets/image/banner/banner3.jpg",
-      link: "/product?categoryId=100016",
-      caption: ""
+      imgUrl: '/assets/image/banner/banner3.jpg',
+      link: '/product?categoryId=100016',
+      caption: '',
     },
     {
       id: 4,
-      imgUrl: "/assets/image/banner/banner4.jpg",
-      link: "/product?categoryId=100001",
-      caption: ""
+      imgUrl: '/assets/image/banner/banner4.jpg',
+      link: '/product?categoryId=100001',
+      caption: '',
     },
     {
       id: 5,
-      imgUrl: "/assets/image/banner/banner5.jpg",
-      link: "/product?categoryId=100021",
-      caption: ""
+      imgUrl: '/assets/image/banner/banner5.jpg',
+      link: '/product?categoryId=100021',
+      caption: '',
     },
-  ]
+  ];
 
   constructor() {
-
   }
 
-  ngOnInit(
+  ngOnInit(): void {
 
-  ): void {}
+  }
 }
