@@ -28,6 +28,7 @@ export class UserService {
   register(userInfo: any) {
     const headers = { 'Content-Type': 'application/json' };
     return this.http.post<User>(`${environment.baseUrl}/user/register.do`, userInfo, {
+      params: userInfo,
       headers,
       withCredentials: true
     });
