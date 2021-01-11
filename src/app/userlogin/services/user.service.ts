@@ -80,6 +80,15 @@ export class UserService {
       params: userInfo
     });
   }
+  // Update password under login status
+  updatePassword(userInfo: any) {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.post<any>(`${environment.baseUrl}/user/reset_password.do`, userInfo, {
+      headers,
+      withCredentials: true,
+      params: userInfo
+    });
+  }
   // Logout
   logout() {
     const headers = { 'Content-Type': 'application/json' };

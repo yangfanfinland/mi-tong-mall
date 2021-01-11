@@ -14,14 +14,26 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PassUpdateContainerComponent implements OnInit {
-  username = new FormControl('')
   password = new FormControl('')
+  passwordNew = new FormControl('')
+  passwordConfirm = new FormControl('')
 
   constructor(
-    private service: UserService
+    private service: UserService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
 
+  }
+
+  onSubmit() {
+    const userInfo = {
+      passwordOld: this.password.value,
+      passwordNew: this.passwordNew.value
+    }
+    this.service.updatePassword(userInfo).subscribe((user) => {
+      this.router.navigate(['/pass-update']);
+    });
   }
 }
