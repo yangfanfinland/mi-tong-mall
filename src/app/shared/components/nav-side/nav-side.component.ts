@@ -12,8 +12,7 @@ export class NavSideComponent implements OnInit {
   navList = [
     { name: 'user-center', desc: 'Personal center', href: '/user-center' },
     { name: 'order-list', desc: 'My order', href: '/order-list' },
-    { name: 'pass-update', desc: 'Update password', href: '/pass-update' },
-    { name: 'about', desc: 'About MMall', href: '/about' },
+    { name: 'pass-update', desc: 'Update password', href: '/pass-update' }
   ];
   currentPath: string;
 
