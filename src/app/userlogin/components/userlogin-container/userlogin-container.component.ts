@@ -7,7 +7,6 @@ import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';

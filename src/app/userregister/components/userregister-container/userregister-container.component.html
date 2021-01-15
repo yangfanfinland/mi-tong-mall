@@ -4,97 +4,117 @@
     <div class="user-con">
       <div class="user-title">User register</div>
       <div class="user-box">
-        <div class="error-item">
+        <div class="error-item" *ngIf="submitted && f.username.errors">
           <i class="fa fa-minus-circle error-icon"></i>
-          <p class="err-msg">Error</p>
+          <div *ngIf="f.username.errors.required">Username is required</div>
+          <div *ngIf="f.username.errors.minlength">Username must be at least 3 characters</div>
         </div>
-        <div class="user-item">
-          <label class="user-label" for="username">
-            <i class="fa fa-user"></i>
-          </label>
-          <input
-            class="user-content"
-            id="username"
-            placeholder="Username"
-            autocomplete="off"
-            [formControl]="username"
-          />
+        <div class="error-item" *ngIf="submitted && f.password.errors">
+          <i class="fa fa-minus-circle error-icon"></i>
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 3 characters</div>
         </div>
-        <div class="user-item">
-          <label class="user-label" for="password">
-            <i class="fa fa-lock"></i>
-          </label>
-          <input
-            type="password"
-            class="user-content"
-            id="password"
-            placeholder="Password"
-            autocomplete="off"
-            [formControl]="password"
-          />
+        <div class="error-item" *ngIf="submitted && f.confirmPassword.errors">
+          <i class="fa fa-minus-circle error-icon"></i>
+          <div *ngIf="f.confirmPassword.errors.required">Confirm password is required</div>
+          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
         </div>
-        <div class="user-item">
-          <label class="user-label" for="password-confirm">
-            <i class="fa fa-lock"></i>
-          </label>
-          <input
-            type="password"
-            class="user-content"
-            id="password-confirm"
-            placeholder="Confirm password"
-            autocomplete="off"
-            [formControl]="confirmPassword"
-          />
+        <div class="error-item" *ngIf="submitted && f.email.errors">
+          <i class="fa fa-minus-circle error-icon"></i>
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
         </div>
-        <div class="user-item">
-          <label class="user-label" for="phone">
-            <i class="fa fa-phone"></i>
-          </label>
-          <input
-            class="user-content"
-            id="phone"
-            placeholder="Mobile"
-            autocomplete="off"
-            [formControl]="phone"
-          />
-        </div>
-        <div class="user-item">
-          <label class="user-label" for="email">
-            <i class="fa fa-envelope"></i>
-          </label>
-          <input
-            class="user-content"
-            id="email"
-            placeholder="Email"
-            autocomplete="off"
-            [formControl]="email"
-          />
-        </div>
-        <div class="user-item">
-          <label class="user-label" for="question">
-            <i class="fa fa-question"></i>
-          </label>
-          <input
-            class="user-content"
-            id="question"
-            placeholder="Password hit question"
-            autocomplete="off"
-            [formControl]="question"
-          />
-        </div>
-        <div class="user-item">
-          <label class="user-label" for="answer">
-            <i class="fa fa-key"></i>
-          </label>
-          <input
-            class="user-content"
-            id="answer"
-            placeholder="Password hit question answer"
-            autocomplete="off"
-            [formControl]="answer"
-          />
-        </div>
-        <a class="btn btn-submit" id="submit" (click)="register()">Register</a>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="user-item">
+            <label class="user-label" for="username">
+              <i class="fa fa-user"></i>
+            </label>
+            <input
+              class="user-content"
+              id="username"
+              placeholder="Username"
+              autocomplete="off"
+              formControlName="username"
+            />
+          </div>
+          <div class="user-item">
+            <label class="user-label" for="password">
+              <i class="fa fa-lock"></i>
+            </label>
+            <input
+              type="password"
+              class="user-content"
+              id="password"
+              placeholder="Password"
+              autocomplete="off"
+              formControlName="password"
+            />
+          </div>
+          <div class="user-item">
+            <label class="user-label" for="password-confirm">
+              <i class="fa fa-lock"></i>
+            </label>
+            <input
+              type="password"
+              class="user-content"
+              id="password-confirm"
+              placeholder="Confirm password"
+              autocomplete="off"
+              formControlName="confirmPassword"
+            />
+          </div>
+          <div class="user-item">
+            <label class="user-label" for="email">
+              <i class="fa fa-envelope"></i>
+            </label>
+            <input
+              class="user-content"
+              id="email"
+              placeholder="Email"
+              autocomplete="off"
+              formControlName="email"
+            />
+          </div>
+          <div class="user-item">
+            <label class="user-label" for="phone">
+              <i class="fa fa-phone"></i>
+            </label>
+            <input
+              class="user-content"
+              id="phone"
+              placeholder="Mobile"
+              autocomplete="off"
+              formControlName="phone"
+            />
+          </div>
+          <!-- <div class="user-item">
+            <label class="user-label" for="question">
+              <i class="fa fa-question"></i>
+            </label>
+            <input
+              class="user-content"
+              id="question"
+              placeholder="Password hit question"
+              autocomplete="off"
+              formControlName="question"
+            />
+          </div>
+          <div class="user-item">
+            <label class="user-label" for="answer">
+              <i class="fa fa-key"></i>
+            </label>
+            <input
+              class="user-content"
+              id="answer"
+              placeholder="Password hit question answer"
+              autocomplete="off"
+              formControlName="answer"
+            />
+          </div> -->
+          <button class="btn btn-submit" id="submit">
+            Register
+          </button>
+        </form>
         <div class="link-item">
           <a class="link" [routerLink]="['/login']">Go to login>></a>
         </div>

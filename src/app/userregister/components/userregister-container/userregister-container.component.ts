@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Product, ProductDetail } from 'src/app/shared';
 import { UserService } from 'src/app/userlogin';
-import { map, filter, switchMap } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MustMatch } from '../../helper/must-match.validator';
+
 
 @Component({
   selector: 'app-userregistercontainer',
@@ -14,27 +14,49 @@ import { FormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserRegisterContainerComponent implements OnInit {
-  username = new FormControl('');
-  password = new FormControl('');
-  confirmPassword = new FormControl('');
-  phone = new FormControl('');
-  email = new FormControl('');
-  question = new FormControl('');
-  answer = new FormControl('');
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(private service: UserService, private router: Router) {}
+  constructor(
+    private service: UserService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(3)]],
+      confirmPassword: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: [''],
+      question: [''],
+      answer: ['']
+    }, {
+      validator: MustMatch('password', 'confirmPassword')
+  });
+  }
 
-  register() {
+  get f() {
+    return this.registerForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
     const userInfo = {
-      username: this.username.value,
-      password: this.password.value,
-      passwordConfirm: this.confirmPassword.value,
-      phone: this.phone.value,
-      email: this.email.value,
-      question: this.question.value,
-      answer: this.answer.value,
+      username: this.registerForm.value.username,
+      password: this.registerForm.value.password,
+      passwordConfirm: this.registerForm.value.confirmPassword,
+      phone: this.registerForm.value.phone,
+      email: this.registerForm.value.email,
+      question: this.registerForm.value.question,
+      answer: this.registerForm.value.answer,
     };
 
     this.service.register(userInfo).subscribe((user) => {
