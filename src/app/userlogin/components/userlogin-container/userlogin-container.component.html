@@ -4,45 +4,45 @@
     <div class="user-con">
       <div class="user-title">User login</div>
       <div class="user-box">
-        <div class="error-item">
+        <div class="error-item" *ngIf="submitted && f.username.errors">
           <i class="fa fa-minus-circle error-icon"></i>
-          <p class="err-msg">Error</p>
+          <div *ngIf="f.username.errors.required">Username is required</div>
         </div>
-        <div class="user-item">
-          <label class="user-label" for="">
-            <i class="fa fa-user"></i>
-          </label>
-          <input
-            class="user-content"
-            id="username"
-            placeholder="Username"
-            autocomplete="off"
-            [formControl]="username"
-            required
-          />
+        <div class="error-item" *ngIf="submitted && f.password.errors">
+          <i class="fa fa-minus-circle error-icon"></i>
+          <div *ngIf="f.password.errors.required">Password is required</div>
         </div>
-        <div class="user-item">
-          <label class="user-label" for="password">
-            <i class="fa fa-lock"></i>
-          </label>
-          <input
-            type="password"
-            class="user-content"
-            id="password"
-            placeholder="Password"
-            autocomplete="off"
-            [formControl]="password"
-            required
-          />
-        </div>
-        <a class="btn btn-submit" id="submit" (click)="login()">Login</a>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="user-item">
+            <label class="user-label" for="">
+              <i class="fa fa-user"></i>
+            </label>
+            <input
+              class="user-content"
+              id="username"
+              placeholder="Username"
+              autocomplete="off"
+              formControlName="username"
+            />
+          </div>
+          <div class="user-item">
+            <label class="user-label" for="password">
+              <i class="fa fa-lock"></i>
+            </label>
+            <input
+              type="password"
+              class="user-content"
+              id="password"
+              placeholder="Password"
+              autocomplete="off"
+              formControlName="password"
+            />
+          </div>
+          <button class="btn btn-submit" id="submit">Login</button>
+        </form>
         <div class="link-item">
-          <a class="link" [routerLink]="['/pass-reset']"
-            >Forgot password?</a
-          >
-          <a class="link" [routerLink]="['/register']"
-            >Register</a
-          >
+          <a class="link" [routerLink]="['/pass-reset']">Forgot password?</a>
+          <a class="link" [routerLink]="['/register']">Register</a>
         </div>
       </div>
     </div>
