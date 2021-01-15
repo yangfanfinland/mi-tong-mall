@@ -54,9 +54,14 @@ export class UserLoginContainerComponent implements OnInit {
 
     this.user$.pipe(take(1)).subscribe(value => {
       if (!value.username) {
-        this.service.login({ username: this.loginForm.value.username, password: this.loginForm.value.password }).subscribe(user => {
-          this.store.dispatch(add({ payload: (user as any).data }))
-          this.router.navigate(['/home']);
+        this.service.login({ username: this.loginForm.value.username, password: this.loginForm.value.password }).subscribe(response => {
+          if ((response as any).status === 0) {
+            this.store.dispatch(add({ payload: (response as any).data }))
+            this.router.navigate(['/home']);
+          } else {
+            alert("Login failed")
+            return
+          }
         })
       } else {
         this.router.navigate(['/home']);

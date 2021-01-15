@@ -59,8 +59,13 @@ export class UserRegisterContainerComponent implements OnInit {
       answer: this.registerForm.value.answer,
     };
 
-    this.service.register(userInfo).subscribe((user) => {
-      this.router.navigate(['/login']);
+    this.service.register(userInfo).subscribe(response => {
+      if ((response as any).status === 0) { 
+        this.router.navigate(['/login']);
+      } else {
+        alert((response as any).msg)
+        return
+      }
     });
   }
 }
