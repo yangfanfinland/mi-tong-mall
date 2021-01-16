@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CartService } from 'src/app/cart';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { SnackBarService } from 'src/app/snackbar.service';
 
 @Component({
   selector: 'app-cart-container',
@@ -20,12 +21,12 @@ export class CartContainerComponent implements OnInit {
   constructor(
     private router: Router,
     private service: CartService,
-  ) {
-  }
+    private snackBService: SnackBarService
+  ) {}
 
   ngOnInit(): void {
-        this.cart$ = this.loadCart().pipe(map((res) => res.data));
-        this.cart$.subscribe((res) => this.renderCart(res.data));
+    this.cart$ = this.loadCart().pipe(map((res) => res.data));
+    this.cart$.subscribe((res) => this.renderCart(res.data));
   }
 
   loadCart = (): Observable<any> => {
@@ -59,7 +60,7 @@ export class CartContainerComponent implements OnInit {
   }
   plus(quantity: number, maxQuantity: number, productId: number) {
     if (quantity + 1 >= maxQuantity) {
-      alert('该商品数量已达到上限');
+      this.snackBService.openSnackBar(`Reach maximum amount in stock`, "End now");
       return;
     }
     this.cart$ = this.service
@@ -75,14 +76,14 @@ export class CartContainerComponent implements OnInit {
       .pipe(map((res) => res.data));
   }
   cartDelete(productId: number) {
-    if (window.confirm('确认要删除该商品？')) {
+    if (window.confirm('Confirm to delete product?')) {
       this.cart$ = this.service
         .deleteProduct(productId.toString())
         .pipe(map((res) => res.data));
     }
   }
   deleteSelected(cart: any) {
-    if (window.confirm('确认要删除该商品？')) {
+    if (window.confirm('Confirm to delete product(s)?')) {
       let arrProductIds = [];
       for (const productVo of cart.cartProductVoList) {
         if (productVo.productChecked) {

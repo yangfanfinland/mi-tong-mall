@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from './material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { PassUpdateModule } from './passupdate'
 import { PassResetModule } from './passreset'
 import { PaymentModule } from './payment'
 import { AboutModule } from './about'
-import { userReducer } from './store/user.reducer' 
+import { userReducer } from './store/user.reducer'
 
 
 
@@ -33,6 +34,7 @@ import { userReducer } from './store/user.reducer'
     BrowserModule,
     StoreModule.forRoot({ user: userReducer }),
     MaterialModule,
+    MatSnackBarModule,
     SharedModule,
     AppRoutingModule,
     HttpClientModule,

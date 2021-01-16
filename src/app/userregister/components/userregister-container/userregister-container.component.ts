@@ -5,7 +5,7 @@ import { UserService } from 'src/app/userlogin';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from '../../helper/must-match.validator';
-
+import { SnackBarService } from 'src/app/snackbar.service';
 
 @Component({
   selector: 'app-userregistercontainer',
@@ -20,7 +20,8 @@ export class UserRegisterContainerComponent implements OnInit {
   constructor(
     private service: UserService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -63,7 +64,7 @@ export class UserRegisterContainerComponent implements OnInit {
       if ((response as any).status === 0) { 
         this.router.navigate(['/login']);
       } else {
-        alert((response as any).msg)
+        this.snackBService.openSnackBar(`Register failed: ${(response as any).msg}`, "End now");
         return
       }
     });

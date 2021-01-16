@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { add } from '../../../store/user.actions';
+import { SnackBarService } from 'src/app/snackbar.service';
 
 @Component({
   selector: 'app-userlogin-container',
@@ -28,7 +29,8 @@ export class UserLoginContainerComponent implements OnInit {
     private service: UserService,
     private store: Store<{ user: any }>,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBService: SnackBarService
   ) {
     this.user$ = store.select('user');
   }
@@ -59,7 +61,7 @@ export class UserLoginContainerComponent implements OnInit {
             this.store.dispatch(add({ payload: (response as any).data }))
             this.router.navigate(['/home']);
           } else {
-            alert("Login failed")
+            this.snackBService.openSnackBar(`Login failed: ${(response as any).msg}`, "End now");
             return
           }
         })

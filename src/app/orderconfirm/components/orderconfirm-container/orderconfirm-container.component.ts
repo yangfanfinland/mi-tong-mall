@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AddressService, OrderService } from '../../services';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { ModalComponent } from '../../../material/components';
+import { SnackBarService } from 'src/app/snackbar.service';
 
 @Component({
   selector: 'app-orderconfirm-container',
@@ -26,7 +27,8 @@ export class OrderConfirmContainerComponent implements OnInit {
     private service: OrderService,
     private addressService: AddressService,
     public dialog: MatDialog,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private snackBService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -94,7 +96,7 @@ export class OrderConfirmContainerComponent implements OnInit {
     }
   }
   addressDelete(addressId: string) {
-    if(window.confirm('确认要删除该地址？')){
+    if(window.confirm('Confirm to delete address?')){
       this.addressService.deleteAddress(addressId).subscribe(response => {
         this.selectedAddressId = "";
         this.loadAddressList();
@@ -107,7 +109,7 @@ export class OrderConfirmContainerComponent implements OnInit {
   }
   orderSubmit() {
     if (!this.selectedAddressId) {
-      alert('Choose address for delivery first!');
+      this.snackBService.openSnackBar(`Choose address for delivery first!`, "End now");
       return;
     }
     this.service.createOrder(this.selectedAddressId).subscribe(response => console.log(response))
