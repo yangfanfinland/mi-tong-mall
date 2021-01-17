@@ -2,7 +2,7 @@
   <div class="w">
     <div class="user-info">
       <span class="user" *ngIf="user$ | async as user">
-        <span class="link-text">
+        <span class="link-text" i18n="site header | An introduce header for this site">
           Welcome,
           <span class="username"><b><i>{{ user.username }}</i></b></span>
         </span>
