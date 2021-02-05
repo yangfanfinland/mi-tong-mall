@@ -4,3 +4,4 @@ export * from './search';
 export * from './nav-side';
 export * from './notice';
 export * from './image-slider';
+export * from './breadcrumb';

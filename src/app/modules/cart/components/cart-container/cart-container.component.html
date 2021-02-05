@@ -1,14 +1,6 @@
 <app-header></app-header>
 <app-search></app-search>
-<div class="crumb">
-  <div class="w">
-    <div class="crumb-con">
-      <a class="link" [routerLink]="['/home']">YIXUAN</a>
-      <span> > </span>
-      <span class="link-text">Shopping cart</span>
-    </div>
-  </div>
-</div>
+<app-breadcrumb link="Shopping cart"></app-breadcrumb>
 <div class="page-wrap w" *ngIf="cart$ | async as cart">
     <div class="cart-header">
         <table class="cart-table">

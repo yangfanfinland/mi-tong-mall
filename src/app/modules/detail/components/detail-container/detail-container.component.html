@@ -1,14 +1,6 @@
 <app-header></app-header>
 <app-search></app-search>
-<div class="crumb">
-  <div class="w">
-    <div class="crumb-con">
-      <a class="link" [routerLink]="['/home']">YIXUAN</a>
-      <span> > </span>
-      <span class="link-text">Product detail</span>
-    </div>
-  </div>
-</div>
+<app-breadcrumb link="Product detail"></app-breadcrumb>
 <div class="page-wrap w" *ngIf="product$ | async as product">
   <div class="intro-wrap">
     <div class="p-img-con">
