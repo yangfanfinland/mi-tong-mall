@@ -58,7 +58,7 @@ export class DetailContainerComponent implements OnInit, AfterViewInit {
   addToCart() {
     this.user$.pipe(take(1)).subscribe((value) => {
       if (!value.username) {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: { returnUrl: window.location.href }});
         return;
       }
 
