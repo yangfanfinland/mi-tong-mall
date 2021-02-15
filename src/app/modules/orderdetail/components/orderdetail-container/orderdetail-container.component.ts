@@ -37,7 +37,7 @@ export class OrderDetailContainerComponent implements OnInit {
   }
 
   orderCancel(orderNumber: number) {
-    if (window.confirm('确实要取消该订单？')) {
+    if (window.confirm('Confirm to cancel this order?')) {
       this.order$ = this.service.cancelOrder(orderNumber).pipe(
         switchMap(response => {
           return this.service.getOrderDetail(this.orderNumber);
