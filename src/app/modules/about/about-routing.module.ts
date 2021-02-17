@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutContainerComponent } from './components';
+import { MainLayoutComponent } from 'src/app/shared';
 
 const routes: Routes = [
   {
     path: 'about',
-    component: AboutContainerComponent
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: AboutContainerComponent },
+    ]
   }
 ];
 

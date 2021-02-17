@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { OrderDetailContainerComponent } from './components';
 import { AuthGuard } from 'src/app/core/auth/auth.guard';
+import { MainLayoutComponent } from 'src/app/shared';
 
 const routes: Routes = [
   {
     path: 'order-detail',
-    component: OrderDetailContainerComponent,
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: OrderDetailContainerComponent },
+    ],
     canActivate: [ AuthGuard ]
   }
 ];

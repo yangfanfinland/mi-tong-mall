@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductContainerComponent } from './components';
+import { MainLayoutComponent } from 'src/app/shared';
 
 const routes: Routes = [
   {
     path: 'product',
-    component: ProductContainerComponent
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ProductContainerComponent },
+    ]
   }
 ];
 
