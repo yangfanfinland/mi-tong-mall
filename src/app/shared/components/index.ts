@@ -6,3 +6,4 @@ export * from './notice';
 export * from './image-slider';
 export * from './breadcrumb';
 export * from './main-layout';
+export * from './user-layout';
