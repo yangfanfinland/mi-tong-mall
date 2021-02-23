@@ -3,14 +3,14 @@
     <h1 class="result-title">Congradulations, register successfully!</h1>
     <div class="result-content">
       <a class="link" [routerLink]="['/home']">Back Home</a>
-      <a class="link" [routerLink]="['/login']">Go to login</a>
+      <a class="link" [routerLink]="['/user/login']">Go to login</a>
     </div>
   </div>
   <div class="result-con pass-reset-success" *ngIf="(type$ | async) == 'pass-reset'">
     <h1 class="result-title">Congradulations, password resetted successfully!</h1>
     <div class="result-content">
       <a class="link" [routerLink]="['/home']">Back Home</a>
-      <a class="link" [routerLink]="['/login']">Go to login</a>
+      <a class="link" [routerLink]="['/user/login']">Go to login</a>
     </div>
   </div>
   <div class="result-con cart-add-success" *ngIf="(type$ | async) == 'cart-add'">

@@ -19,6 +19,7 @@ import { OrderDetailModule } from './modules/orderdetail'
 import { UserRegisterModule } from './modules/userregister'
 import { UserLoginModule } from './modules/userlogin'
 import { UserCenterModule } from './modules/usercenter'
+import { UserModule } from './modules/user'
 import { UserCenterUpdateModule } from './modules/usercenterupdate'
 import { PassUpdateModule } from './modules/passupdate'
 import { PassResetModule } from './modules/passreset'
@@ -48,6 +49,7 @@ import { userReducer } from './store/user.reducer'
     OrderDetailModule,
     UserRegisterModule,
     UserLoginModule,
+    UserModule,
     UserCenterModule,
     UserCenterUpdateModule,
     PassUpdateModule,

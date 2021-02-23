@@ -22,11 +22,11 @@ export class AuthGuard implements CanActivate {
         if ((response as any).status === 0) {
           return true;
         }
-        this.router.navigate(['/login'], { queryParams: { returnUrl: window.location.href } });
+        this.router.navigate(['/user/login'], { queryParams: { returnUrl: window.location.href } });
         return false;
       }),
       catchError(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/user/login']);
         return of(false);
       })
     );

@@ -54,11 +54,11 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/login']);
   }
 
   register() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/user/register']);
   }
 
   logout() {
