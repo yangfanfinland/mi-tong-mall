@@ -21,7 +21,7 @@
                 <td colspan="5" class="order-info">
                     <span class="order-text">
                         <span>Order no: </span>
-                        <a class="link order-num" [routerLink]="['/order-detail']" [queryParams]="{orderNumber: order.orderNo}">{{order.orderNo}}</a>
+                        <a class="link order-num" [routerLink]="['/center/order-detail']" [queryParams]="{orderNumber: order.orderNo}">{{order.orderNo}}</a>
                     </span>
                     <span class="order-text">{{order.createTime}}</span>
                     <span class="order-text">Receiver: {{order.receiverName}}</span>
@@ -30,7 +30,7 @@
                         <span>Order total: </span>
                         <span class="order-total">￥{{order.payment}}</span>
                     </span>
-                    <a class="link order-detail" [routerLink]="['/order-detail']" [queryParams]="{orderNumber: order.orderNo}">View details></a>
+                    <a class="link order-detail" [routerLink]="['/center/order-detail']" [queryParams]="{orderNumber: order.orderNo}">View details></a>
                 </td>
             </tr>
             <tr *ngFor="let orderItemVo of order.orderItemVoList">

@@ -10,9 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NavSideComponent implements OnInit {
   navList = [
-    { name: 'user-center', desc: 'Personal center', href: '/user-center' },
-    { name: 'order-list', desc: 'My order', href: '/order-list' },
-    { name: 'pass-update', desc: 'Update password', href: '/pass-update' }
+    { name: 'user-center', desc: 'Personal center', href: '/center' },
+    { name: 'order-list', desc: 'My order', href: '/center/order-list' },
+    { name: 'pass-update', desc: 'Update password', href: '/center/pass-update' }
   ];
   currentPath: string;
 
