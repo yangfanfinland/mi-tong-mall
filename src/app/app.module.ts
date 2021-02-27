@@ -14,8 +14,6 @@ import { DetailModule } from './modules/detail';
 import { CartModule } from './modules/cart';
 import { ResultModule } from './modules/result'
 import { OrderConfirmModule } from './modules/orderconfirm'
-import { UserRegisterModule } from './modules/userregister'
-import { UserLoginModule } from './modules/userlogin'
 import { UserModule } from './modules/user'
 import { CenterModule } from './modules/center'
 import { PassResetModule } from './modules/passreset'
@@ -41,8 +39,6 @@ import { userReducer } from './store/user.reducer'
     CartModule,
     ResultModule,
     OrderConfirmModule,
-    UserRegisterModule,
-    UserLoginModule,
     UserModule,
     CenterModule,
     PassResetModule,
