@@ -18,6 +18,11 @@ import { OrderService } from 'src/app/core/services/order.service';
 export class OrderDetailContainerComponent implements OnInit {
   order$: Observable<any>;
   orderNumber: number;
+  links = [
+    { name: "Center", href: "/center" },
+    { name: "Order list", href: "/center/order-list" },
+    { name: "Order detail", href: "" }
+  ]
 
   constructor(
     private router: Router,

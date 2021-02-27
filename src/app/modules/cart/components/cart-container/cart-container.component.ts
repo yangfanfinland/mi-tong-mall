@@ -17,6 +17,9 @@ export class CartContainerComponent implements OnInit {
   data: any = {};
   user$: Observable<any>;
   userResource$: Observable<any>;
+  links = [
+    { name: "Shopping cart", href: "" }
+  ]
 
   constructor(
     private router: Router,

@@ -1,4 +1,4 @@
-<app-breadcrumb link="Shopping cart"></app-breadcrumb>
+<app-breadcrumb [links]="links"></app-breadcrumb>
 <div class="page-wrap w" *ngIf="cart$ | async as cart">
     <div class="cart-header">
         <table class="cart-table">

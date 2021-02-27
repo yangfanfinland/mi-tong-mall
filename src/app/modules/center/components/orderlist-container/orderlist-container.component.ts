@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
 import { map } from 'rxjs/operators';
 import { OrderService } from 'src/app/core/services/order.service';
 
@@ -14,6 +13,10 @@ import { OrderService } from 'src/app/core/services/order.service';
 export class OrderListContainerComponent implements OnInit {
 
   list$: Observable<any>;
+  links = [
+    { name: "Center", href: "/center" },
+    { name: "Order list", href: "" }
+  ]
 
   constructor(
     private service: OrderService,

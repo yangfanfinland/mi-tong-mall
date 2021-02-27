@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutContainerComponent implements OnInit {
+  links = [
+    { name: "About", href: "" }
+  ]
+
   constructor(
   ) {}
 

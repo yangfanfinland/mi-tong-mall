@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class BreadcrumbComponent implements OnInit {
 
-  @Input() link = "";
+  @Input() links= [];
 
   ngOnInit() {}
 }

@@ -21,6 +21,9 @@ export class ProductContainerComponent implements OnInit {
   type = "default";
   pageNum: number = 1;
   pageSize: number = 10;
+  links = [
+    { name: "Product list", href: "" }
+  ]
 
   constructor(
     private router: Router,

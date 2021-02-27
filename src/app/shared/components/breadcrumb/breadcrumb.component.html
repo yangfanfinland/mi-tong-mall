@@ -2,8 +2,11 @@
   <div class="w">
     <div class="crumb-con">
       <a class="link" [routerLink]="['/home']">YIXUAN</a>
-      <span> > </span>
-      <span class="link-text">{{ link }}</span>
+      <ng-container *ngFor="let link of links" >
+        <span> > </span>
+        <a class="link" *ngIf="link.href" [routerLink]="[link.href]">{{ link.name }}</a>
+        <span *ngIf="!link.href" class="link-text">{{ link.name }}</span>
+      </ng-container>
     </div>
   </div>
 </div>

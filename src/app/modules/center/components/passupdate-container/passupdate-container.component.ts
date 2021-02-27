@@ -17,6 +17,10 @@ export class PassUpdateContainerComponent implements OnInit {
   password = new FormControl('')
   passwordNew = new FormControl('')
   passwordConfirm = new FormControl('')
+  links = [
+    { name: "Center", href: "/center" },
+    { name: "Password update", href: "" }
+  ]
 
   constructor(
     private service: UserService,

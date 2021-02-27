@@ -1,10 +1,6 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
 import { UserService } from 'src/app/core/services/user.service';
-import { map, filter, switchMap } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -16,6 +12,9 @@ import { FormControl } from '@angular/forms';
 export class PaymentContainerComponent implements OnInit {
   username = new FormControl('')
   password = new FormControl('')
+  links = [
+    { name: "Payment", href: "" }
+  ]
 
   constructor(
     private service: UserService

@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
 import { UserService } from 'src/app/core/services/user.service';
 import { map } from 'rxjs/operators';
 
@@ -13,6 +12,9 @@ import { map } from 'rxjs/operators';
 })
 export class UserCenterContainerComponent implements OnInit {
   user$: Observable<any>;
+  links = [
+    { name: "Center", href: "/center" }
+  ]
 
   constructor(
     private service: UserService

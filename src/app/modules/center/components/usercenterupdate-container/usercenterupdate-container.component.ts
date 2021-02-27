@@ -1,12 +1,9 @@
 import { ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ProductDetail } from 'src/app/shared';
 import { UserService } from 'src/app/core/services/user.service';
-import { map, filter, switchMap } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl, NgForm } from '@angular/forms';
-import { ViewChild } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usercenterupdatecontainer',
@@ -16,6 +13,10 @@ import { ViewChild } from '@angular/core';
 })
 export class UserCenterUpdateContainerComponent implements OnInit {
   user$: Observable<any>;
+  links = [
+    { name: "Center", href: "/center" },
+    { name: "Update", href: "" }
+  ]
 
   constructor(
     private router: Router,

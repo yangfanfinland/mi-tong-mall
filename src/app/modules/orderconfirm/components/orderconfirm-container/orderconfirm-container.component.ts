@@ -20,7 +20,10 @@ export class OrderConfirmContainerComponent implements OnInit {
   addressList$: Observable<any>;
   orderItem$: Observable<any>;
   data = { selectedAddressId: "" };
-  selectedAddressId = ""
+  selectedAddressId = "";
+  links = [
+    { name: "Confirm order", href: "" }
+  ]
 
   constructor(
     private router: Router,

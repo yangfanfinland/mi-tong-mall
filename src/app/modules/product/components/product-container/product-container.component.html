@@ -1,4 +1,4 @@
-<app-breadcrumb link="Product list"></app-breadcrumb>
+<app-breadcrumb [links]="links"></app-breadcrumb>
 <div class="page-wrap w">
   <ul class="sort-con">
     <li class="sort-item" [class.active]="type === 'default'" data-type="default" (click)="sort('default')">Default</li>

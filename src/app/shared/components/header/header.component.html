@@ -22,10 +22,10 @@
         </a>
       </li>
       <li class="nav-item" *ngIf="user$ | async as user">
-        <a class="link" [routerLink]="['/order-list']">My order</a>
+        <a class="link" [routerLink]="['/center/order-list']">My order</a>
       </li>
       <li class="nav-item" *ngIf="user$ | async as user">
-        <a class="link" [routerLink]="['/user-center']">My YIXUAN</a>
+        <a class="link" [routerLink]="['/center']">My YIXUAN</a>
       </li>
       <li class="nav-item">
         <a class="link" [routerLink]="['/about']">About</a>

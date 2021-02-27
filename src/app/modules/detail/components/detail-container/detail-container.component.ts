@@ -28,6 +28,9 @@ export class DetailContainerComponent implements OnInit, AfterViewInit {
   count = 1;
   productId = 0;
   user$: Observable<any>;
+  links = [
+    { name: "Product detail", href: "" }
+  ]
 
   constructor(
     private rd2: Renderer2,
