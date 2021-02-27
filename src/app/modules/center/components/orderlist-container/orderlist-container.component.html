@@ -1,0 +1,55 @@
+<app-breadcrumb link="Order list"></app-breadcrumb>
+<div class="page-wrap w">
+  <app-nav-side></app-nav-side>
+  <div class="content with-nav">
+    <div class="panel">
+      <div class="panel-title">Order list</div>
+      <div class="panel-body">
+        <div class="order-list-con"></div>
+        <div class="pagination">
+          <table class="order-list-table header">
+            <tr>
+              <th class="cell cell-img">&nbsp;</th>
+              <th class="cell cell-info">Product information</th>
+              <th class="cell cell-price">Price</th>
+              <th class="cell cell-count">Amount</th>
+              <th class="cell cell-total">Sub total</th>
+            </tr>
+          </table>
+          <table class="order-list-table order-item" *ngFor="let order of list$ | async">
+            <tr>
+                <td colspan="5" class="order-info">
+                    <span class="order-text">
+                        <span>Order no: </span>
+                        <a class="link order-num" [routerLink]="['/order-detail']" [queryParams]="{orderNumber: order.orderNo}">{{order.orderNo}}</a>
+                    </span>
+                    <span class="order-text">{{order.createTime}}</span>
+                    <span class="order-text">Receiver: {{order.receiverName}}</span>
+                    <span class="order-text">Order status: {{order.statusDesc}}</span>
+                    <span class="order-text">
+                        <span>Order total: </span>
+                        <span class="order-total">￥{{order.payment}}</span>
+                    </span>
+                    <a class="link order-detail" [routerLink]="['/order-detail']" [queryParams]="{orderNumber: order.orderNo}">View details></a>
+                </td>
+            </tr>
+            <tr *ngFor="let orderItemVo of order.orderItemVoList">
+                <td class="cell cell-img">
+                    <a [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}">
+                        <img class="p-img" src="{{order.imageHost}}{{orderItemVo.productImage}}" alt="{{orderItemVo.productName}}" />
+                    </a>
+                </td>
+                <td class="cell cell-info">
+                    <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}">{{orderItemVo.productName}}</a>
+                </td>
+                <td class="cell cell-price">￥{{orderItemVo.currentUnitPrice}}</td>
+                <td class="cell cell-count">{{orderItemVo.quantity}}</td>
+                <td class="cell cell-total">￥{{orderItemVo.totalPrice}}</td>
+            </tr>
+        </table>
+        <p class="err-tip" *ngIf="!(list$ | async)">No orders yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

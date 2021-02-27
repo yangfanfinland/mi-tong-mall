@@ -18,9 +18,10 @@ import { OrderListModule } from './modules/orderlist'
 import { OrderDetailModule } from './modules/orderdetail'
 import { UserRegisterModule } from './modules/userregister'
 import { UserLoginModule } from './modules/userlogin'
-import { UserCenterModule } from './modules/usercenter'
 import { UserModule } from './modules/user'
+import { UserCenterModule } from './modules/usercenter'
 import { UserCenterUpdateModule } from './modules/usercenterupdate'
+import { CenterModule } from './modules/center'
 import { PassUpdateModule } from './modules/passupdate'
 import { PassResetModule } from './modules/passreset'
 import { PaymentModule } from './modules/payment'
@@ -52,6 +53,7 @@ import { userReducer } from './store/user.reducer'
     UserModule,
     UserCenterModule,
     UserCenterUpdateModule,
+    CenterModule,
     PassUpdateModule,
     PassResetModule,
     PaymentModule,

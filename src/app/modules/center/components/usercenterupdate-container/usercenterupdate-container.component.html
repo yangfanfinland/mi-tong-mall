@@ -1,0 +1,57 @@
+<app-breadcrumb link="user-center-update"></app-breadcrumb>
+<div class="page-wrap w">
+  <app-nav-side></app-nav-side>
+  <div class="content with-nav">
+    <div class="panel">
+      <div class="panel-title">Personal center</div>
+      <div class="panel-body">
+        <!-- <div class="loading"></div> -->
+        <div *ngIf="user$ | async as user">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="user-info">
+            <div class="form-line">
+              <span class="label">User: </span>
+              <span class="text">{{ user.username }}</span>
+            </div>
+            <div class="form-line">
+              <span class="label">Mobile: </span>
+              <input
+                class="input"
+                name="phone"
+                autocomplete="off"
+                [(ngModel)]="user.phone"
+              />
+            </div>
+            <div class="form-line">
+              <span class="label">E-mail: </span>
+              <input
+                class="input"
+                name="email"
+                autocomplete="off"
+                [(ngModel)]="user.email"
+              />
+            </div>
+            <div class="form-line">
+              <span class="label">Question: </span>
+              <input
+                class="input"
+                name="question"
+                autocomplete="off"
+                [(ngModel)]="user.question"
+              />
+            </div>
+            <div class="form-line">
+              <span class="label">Answer: </span>
+              <input
+                class="input"
+                name="answer"
+                autocomplete="off"
+                [(ngModel)]="user.answer"
+              />
+            </div>
+            <button type="submit" class="btn btn-submit">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

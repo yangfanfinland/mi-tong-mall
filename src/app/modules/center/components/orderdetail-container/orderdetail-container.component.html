@@ -1,0 +1,79 @@
+<app-breadcrumb link="Order detail"></app-breadcrumb>
+<div class="page-wrap w">
+  <app-nav-side></app-nav-side>
+  <div class="content with-nav" *ngIf="order$ | async as order">
+    <div class="panel">
+      <div class="panel-title">Order information</div>
+      <div class="panel-body">
+        <div class="order-info">
+          <div class="text-line">
+            <span class="text">Order no: {{ order.orderNo }}</span>
+            <span class="text">Created date: {{ order.createTime }}</span>
+          </div>
+          <div class="text-line">
+            <span class="text">
+              Receiver:
+              {{ order.receiverName }}
+              {{ order.shippingVo.receiverProvince }}
+              {{ order.shippingVo.receiverCity }}
+              {{ order.shippingVo.receiverAddress }}
+              {{ order.shippingVo.receiverMobile }}
+            </span>
+          </div>
+          <div class="text-line">
+            <span class="text">Order status: {{ order.statusDesc }}</span>
+          </div>
+          <div class="text-line">
+            <span class="text">Payment method: {{ order.paymentTypeDesc }}</span>
+          </div>
+          <div class="text-line">
+            <a *ngIf="order.status == 10" class="btn" [routerLink]="['/payment']" [queryParams]="{orderNumber: order.orderNo}"
+              >Go to pay</a
+            >
+            <a *ngIf="order.status == 10" class="btn order-cancel" (click)="orderCancel(order.orderNo)">Cancel order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Product list</div>
+      <div class="panel-body">
+        <table class="product-table">
+          <tr>
+            <th class="cell-th cell-img">&nbsp;</th>
+            <th class="cell-th cell-info">Product information</th>
+            <th class="cell-th cell-price">Price</th>
+            <th class="cell-th cell-count">Amount</th>
+            <th class="cell-th cell-total">Sub total</th>
+          </tr>
+          <tr *ngFor="let orderItemVo of order.orderItemVoList">
+            <td class="cell cell-img">
+              <a [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}">
+                <img
+                  class="p-img"
+                  src="{{ order.imageHost }}{{ orderItemVo.productImage }}"
+                  alt="{{ orderItemVo.productName }}"
+                />
+              </a>
+            </td>
+            <td class="cell cell-info">
+              <a
+                class="link"
+                [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}"
+                target="_blank"
+                >{{ orderItemVo.productName }}</a
+              >
+            </td>
+            <td class="cell cell-price">￥{{ orderItemVo.currentUnitPrice }}</td>
+            <td class="cell cell-count">{{ orderItemVo.quantity }}</td>
+            <td class="cell cell-total">￥{{ orderItemVo.totalPrice }}</td>
+          </tr>
+        </table>
+        <p class="total">
+          <span>Order total: </span>
+          <span class="total-price">￥{{ order.payment }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
