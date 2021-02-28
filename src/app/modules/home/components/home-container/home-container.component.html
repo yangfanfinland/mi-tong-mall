@@ -197,7 +197,7 @@
     <ul class="floor-list">
       <li class="floor-item" *ngFor="let category of floor.categories">
         <a [routerLink]="['/product']" [queryParams]="{ categoryId: category.id }">
-          <span class="floor-text"></span>
+          <span class="floor-text">{{category.text}}</span>
           <img
             class="floor-img"
             src='{{category.image}}'
