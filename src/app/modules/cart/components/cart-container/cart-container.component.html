@@ -26,12 +26,12 @@
                     </label>
                 </td>
                 <td class="cart-cell cell-img">
-                    <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: productVo.productId}">
+                    <a class="link" [routerLink]="['/product/detail']" [queryParams]="{productId: productVo.productId}">
                         <img class="p-img" src="{{cart.imageHost}}{{productVo.productMainImage}}" alt="{{productVo.productName}}" />
                     </a>
                 </td>
                 <td class="cart-cell cell-info">
-                    <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: productVo.productId}">{{productVo.productName}}</a>
+                    <a class="link" [routerLink]="['/product/detail']" [queryParams]="{productId: productVo.productId}">{{productVo.productName}}</a>
                 </td>
                 <td class="cart-cell cell-price">￥{{productVo.productPrice}}</td>
                 <td class="cart-cell cell-count">

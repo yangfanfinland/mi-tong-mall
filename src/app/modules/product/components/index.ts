@@ -1,1 +1,2 @@
-export * from './product-container/index';
+export * from './product-container';
+export * from './detail-container';

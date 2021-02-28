@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared';
 import { HomeModule } from './modules/home';
 import { ProductModule } from './modules/product';
-import { DetailModule } from './modules/detail';
 import { CartModule } from './modules/cart';
 import { ResultModule } from './modules/result'
 import { OrderConfirmModule } from './modules/orderconfirm'
@@ -35,7 +34,6 @@ import { userReducer } from './store/user.reducer'
     HttpClientModule,
     HomeModule,
     ProductModule,
-    DetailModule,
     CartModule,
     ResultModule,
     OrderConfirmModule,

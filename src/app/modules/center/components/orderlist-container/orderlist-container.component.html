@@ -35,12 +35,12 @@
             </tr>
             <tr *ngFor="let orderItemVo of order.orderItemVoList">
                 <td class="cell cell-img">
-                    <a [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}">
+                    <a [routerLink]="['/product/detail']" [queryParams]="{productId: orderItemVo.productId}">
                         <img class="p-img" src="{{order.imageHost}}{{orderItemVo.productImage}}" alt="{{orderItemVo.productName}}" />
                     </a>
                 </td>
                 <td class="cell cell-info">
-                    <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: orderItemVo.productId}">{{orderItemVo.productName}}</a>
+                    <a class="link" [routerLink]="['/product/detail']" [queryParams]="{productId: orderItemVo.productId}">{{orderItemVo.productName}}</a>
                 </td>
                 <td class="cell cell-price">￥{{orderItemVo.currentUnitPrice}}</td>
                 <td class="cell cell-count">{{orderItemVo.quantity}}</td>

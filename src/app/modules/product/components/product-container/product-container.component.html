@@ -15,7 +15,7 @@
       
       <li class="p-item">
           <div class="p-img-con">
-              <a class="link" [routerLink]="['/detail']" [queryParams]="{productId: product.id}">
+              <a class="link" [routerLink]="['/product/detail']" [queryParams]="{productId: product.id}">
                   <img class="p-img" src="{{product.imageHost}}{{product.mainImage}}" alt="{{product.name}}" />
               </a>
           </div>
@@ -23,7 +23,7 @@
               <span class="p-price">￥{{product.price}}</span>
           </div>
           <div class="p-name-con">
-              <a class="p-name" [routerLink]="['/detail']" [queryParams]="{productId: product.id}">{{product.name}}</a>
+              <a class="p-name" [routerLink]="['/product/detail']" [queryParams]="{productId: product.id}">{{product.name}}</a>
           </div>
       </li>
   
