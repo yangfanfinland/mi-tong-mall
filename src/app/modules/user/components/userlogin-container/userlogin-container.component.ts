@@ -37,7 +37,7 @@ export class UserLoginContainerComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
-    this.route.queryParams.subscribe( params => {
+    this.route.queryParams.subscribe(params => {
       this.returnUrl = params.returnUrl;
   })
   }

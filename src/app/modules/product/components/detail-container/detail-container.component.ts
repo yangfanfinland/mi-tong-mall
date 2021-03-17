@@ -5,7 +5,7 @@ import {
   ViewChild,
   Renderer2,
   ElementRef,
-  AfterViewInit
+  AfterViewInit,
 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductDetail } from 'src/app/shared';
@@ -28,9 +28,7 @@ export class DetailContainerComponent implements OnInit, AfterViewInit {
   count = 1;
   productId = 0;
   user$: Observable<any>;
-  links = [
-    { name: "Product detail", href: "" }
-  ]
+  links = [{ name: 'Product detail', href: '' }];
 
   constructor(
     private rd2: Renderer2,
@@ -44,30 +42,31 @@ export class DetailContainerComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.product$ = this.route.queryParams.pipe(
-      switchMap((params) => {
-        const productId = params.productId || '';
-        this.productId = productId ? parseInt(productId) : 0;
-        return this.service.getProductById(productId);
-      }),
-      map((resource) => resource.data)
-    );
+    const productId = this.route.snapshot.queryParams.productId;
+    this.productId = parseInt(productId);
+    this.product$ = this.service
+      .getProductById(productId)
+      .pipe(map((resource) => resource.data));
   }
 
-  ngAfterViewInit(): void {
-
-  }
+  ngAfterViewInit(): void {}
 
   addToCart() {
     this.user$.pipe(take(1)).subscribe((value) => {
       if (!value.username) {
-        this.router.navigate(['/user/login'], { queryParams: { returnUrl: window.location.href }});
+        this.router.navigate(['/user/login'], {
+          queryParams: { returnUrl: window.location.href },
+        });
         return;
       }
 
-      this.cartService.addToCart(this.productId, this.count).subscribe((res) => {
-        this.router.navigate(['/result'], { queryParams: { type: 'cart-add' } });
-      });
+      this.cartService
+        .addToCart(this.productId, this.count)
+        .subscribe((res) => {
+          this.router.navigate(['/result'], {
+            queryParams: { type: 'cart-add' },
+          });
+        });
     });
   }
 
@@ -80,10 +79,6 @@ export class DetailContainerComponent implements OnInit, AfterViewInit {
   }
 
   imagePreview = (host: string, imgPath: string) => {
-    this.rd2.setProperty(
-      this.image.nativeElement,
-      'src',
-      host + imgPath
-    );
-  }
+    this.rd2.setProperty(this.image.nativeElement, 'src', host + imgPath);
+  };
 }

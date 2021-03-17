@@ -32,21 +32,13 @@ export class ProductContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.products$ = this.service
-    //   .getProductsByKeyword(encodeURIComponent('iPhone'))
-    //   .pipe(map((resource) => resource.data ? resource.data.list : []));
-
-    this.listResource$ = this.route.queryParams.pipe(
-      switchMap((params) => {
-        this.keyword = params.keyword;
-        this.categoryId = params.categoryId;
-        if (this.keyword) {
-          return this.getProductsByKeyword("default", this.pageNum, this.pageSize);
-        }
-        return this.getProductsByCategoryId("default", this.pageNum, this.pageSize);
-      }),
-      map((resource) => (resource.data ? resource.data : { status: 0 } ))
-    );
+    this.keyword = this.route.snapshot.queryParams.keyword;
+    this.categoryId = this.route.snapshot.queryParams.categoryId;
+    if (this.keyword) {
+      this.listResource$ = this.getProductsByKeyword("default", this.pageNum, this.pageSize).pipe(map((resource) => (resource.data ? resource.data : { status: 0 } )));
+    } else {
+      this.listResource$ = this.getProductsByCategoryId("default", this.pageNum, this.pageSize).pipe(map((resource) => (resource.data ? resource.data : { status: 0 } )));
+    }
   }
 
   sort(type: string) {

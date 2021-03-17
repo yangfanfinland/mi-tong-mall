@@ -31,14 +31,9 @@ export class OrderDetailContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.order$ = this.route.queryParams.pipe(
-      switchMap((params) => {
-        const orderNumber = params.orderNumber || 0;
-        this.orderNumber = orderNumber;
-        return this.service.getOrderDetail(orderNumber);
-      }),
-      map((response) => response.data)
-    );
+    const orderNumber = this.route.snapshot.queryParams.orderNumber;
+    this.orderNumber = orderNumber;
+    this.order$ = this.service.getOrderDetail(orderNumber).pipe(map((response) => response.data));
   }
 
   orderCancel(orderNumber: number) {
