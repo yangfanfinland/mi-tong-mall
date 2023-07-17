@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://miyixuan.com:8080/mitongmall'
+  baseUrl: 'http://mifantong.com:8080/mitongmall',
 };
